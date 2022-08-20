@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+    
+}
+  
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.sizeOp{
+  width: 20%;
+  padding-left: 15px;
+}
+
+.sizeLib{
+  width: 25%;
+  word-wrap: break-word;
+}
+
+.sizeDesc{
+  word-break:break-all;
+  width: 46%;
+}

@@ -1,0 +1,13 @@
+span{
+    color: red;
+}
+
+.block {
+    display: block;
+    width: 10%;
+}
+
+input
+{
+  width: 300px;
+}

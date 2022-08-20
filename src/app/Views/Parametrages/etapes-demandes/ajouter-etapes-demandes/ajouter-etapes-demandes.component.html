@@ -1,0 +1,192 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            
+            <div class="pd-20 card-box mb-30">
+                <!-- Détails Types Demande -->
+                <div class="col-md-6 col-sm-12">
+                    <div class="title">
+                        <h2 class="text-blue h4">{{fr.nav_typeDemande}}</h2>
+                    </div>
+                </div>
+                <div class="pd-20 card-box mb-30">
+                    <div class="wizard-content" >
+                        <form class="tab-wizard wizard-circle wizard needs-validation novalidate">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label ">{{fr.chmp_Libelle}} : </label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <p class="form-control controle noBorder"> {{type.demandeTypeLibelle}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label">{{fr.chmp_Acronyme}} : </label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <p class="form-control controle noBorder">{{type.demandeTypeAcronym}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label">{{fr.chmp_Description}} :</label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <textarea readonly style="
+                                            height: fit-content;
+                                                        resize:none;
+                                                        border:none; 
+                                                        color:#000000; background-color: white;" class="form-control"
+                                                        name="demandeTypeDescription">{{type.demandeTypeDescription}}
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!------- Ajouter EtapesDemandes ------------>
+                <div class="title">
+                    <h2 class="text-blue h4">{{fr.btn_ajout}} {{fr.nav_EtapeDemande}}</h2>
+                </div>
+                <div class="pd-20 card-box mb-30">
+                    <div class="wizard-content" style="margin-top: 50px;">
+                        <form [formGroup]="form" (ngSubmit)="formSubmit()"
+                            class="tab-wizard wizard-circle wizard needs-validation novalidate">
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_Libelle}} :&ensp;<span>
+                                                *</span></label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <input name="etapesDemandesLibelle" required maxlength="45"
+                                                [(ngModel)]="etape.etapesDemandesLibelle"
+                                                formControlName="etapesDemandesLibelle" class="form-control controle"
+                                                type="text"
+                                                [ngClass]="{ 'is-invalid': submitted && f['etapesDemandesLibelle'].errors }" />
+                                            <div *ngIf="submitted && f['etapesDemandesLibelle'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['etapesDemandesLibelle'].errors['required']">
+                                                    {{fr.chmp_obligatoir}} {{fr.chmp_Libelle}}</div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label">{{fr.chmp_Description}} :</label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <textarea formControlName="etapesDemandesDescription" maxlength="45" 
+                                                style="height: 100px;" class="form-control" name="etapesDemandesDescription"
+                                                [(ngModel)]="etape.etapesDemandesDescription"
+                                                [ngClass]="{ 'is-invalid': submitted && f['etapesDemandesDescription'].errors }"></textarea>
+                                            <div *ngIf="submitted && f['etapesDemandesDescription'].errors"
+                                                class="invalid-feedback">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label">{{fr.chmp_ordre}} :&ensp;<span>*</span></label>
+                                            
+                                        <div class="col-sm-12 col-md-3">
+                                            <input class="form-control" type="number" name="etapesDemandesOrdre" required min="0"
+                                                [(ngModel)]="etape.etapesDemandesOrdre"
+                                                formControlName="etapesDemandesOrdre"
+                                                [ngClass]="{ 'is-invalid': submitted && f['etapesDemandesOrdre'].errors }" />
+                                            <div *ngIf="submitted && f['etapesDemandesOrdre'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['etapesDemandesOrdre'].errors['required']">
+                                                    {{fr.chmp_obligatoir}} {{fr.chmp_ordre}}</div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label">{{fr.chmp_Acteur}} :&ensp;<span>*
+                                            </span></label>
+                                        <div class="col-sm-12 col-md-4">
+                                            <select formControlName="etapesDemandesActeurType"
+                                                [ngClass]="{ 'is-invalid': submitted && f['etapesDemandesActeurType'].errors }"
+                                                name="etapesDemandesActeurType"
+                                                [(ngModel)]="etape.etapesDemandesActeurType.acteurTypeId"
+                                                class="form-control ">
+                                                <div *ngIf="submitted && f['etapesDemandesActeurType'].errors"
+                                                    class="invalid-feedback">
+                                                    <div *ngIf="f['etapesDemandesActeurType'].errors['required']">
+                                                        {{fr.chmp_obligatoir}} {{fr.chmp_Acteur}}
+                                                    </div>
+                                                </div>
+                                                <option *ngFor="let act of acteursType" [value]="act.acteurTypeId">
+                                                    {{act.acteurTypeDesignationCourte}}</option>
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label">{{fr.chmp_Delais}} :&ensp;<span>*
+                                            </span></label>
+                                        <div class="col-sm-12 col-md-2">
+                                            <input class="form-control " type="number" name="etapesDemandesDelaiExecution" min="0"
+                                                required [(ngModel)]="etape.etapesDemandesDelaiExecution"
+                                                formControlName="etapesDemandesDelaiExecution" class="form-control controle"
+                                                [ngClass]="{ 'is-invalid': submitted && f['etapesDemandesDelaiExecution'].errors }" />
+                                            <div *ngIf="submitted && f['etapesDemandesDelaiExecution'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['etapesDemandesDelaiExecution'].errors['required']">
+                                                    {{fr.chmp_obligatoir}} {{fr.chmp_Delais}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-10 col-md-2">
+                                            <div>{{fr.jours}}</div>
+                                        </div>
+                                        <div class="col-sm-10 col-md">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input [(ngModel)]="etape.etapesDemandesDureeJourOuvrable" type="checkbox"
+                                                    class="custom-control-input" id="etapesDemandesDureeJourOuvrable"
+                                                    name="etapesDemandesDureeJourOuvrable" 
+                                                    formControlName="etapesDemandesDureeJourOuvrable"
+                                                    [ngClass]="{ 'is-invalid': submitted && f['etapesDemandesDureeJourOuvrable'].errors }" />
+                                                <label class="custom-control-label"
+                                                    for="etapesDemandesDureeJourOuvrable">{{fr.jours_Ouvrables}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <button [routerLink]="'/detailDem/'+type.demandeTypeId" class="btn btn-secondary "> {{fr.btn_annulation}}
+                                </button>
+                                <button style="margin-left: 10px;" type="submit" class="btn btn-success "> {{fr.btn_ajout}}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

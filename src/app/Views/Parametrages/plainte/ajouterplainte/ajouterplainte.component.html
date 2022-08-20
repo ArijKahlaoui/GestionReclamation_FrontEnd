@@ -1,0 +1,135 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h2 class="text-blue h4">{{fr.btn_ajout}} {{fr.nav_Plainte}}</h2>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a [routerLink]="'/ListePlainte'">{{fr.nav_Accueil}}</a>
+                                </li>
+                                <li class="breadcrumb-item text-blue " aria-current="page">
+                                    {{fr.btn_ajout}} {{fr.nav_Plainte}}
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="pd-20 card-box mb-30">
+                
+                <div class="wizard-content" style="margin-top: 50px;">
+                    <form [formGroup]="form" (ngSubmit)="submitAll()" class="tab-wizard wizard-circle wizard needs-validation novalidate">
+                        
+                            <div class="row" >
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label ">{{fr.chmp_objet}} :</label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <input  name="plainteObjet"  maxlength="254"
+                                                [(ngModel)]="plainte.plainteObjet"
+                                                formControlName="plainteObjet" 
+                                                class="form-control controle"
+                                                type="text" 
+                                                [ngClass]="{ 'is-invalid': submitted && f['plainteObjet'].errors }"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label ">{{fr.chmp_appel_offre}} :</label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <option type="text " name="plainteAoReference"
+                                            formControlName="plainteAoReference"
+                                            [(ngModel)]="plainte.plainteAoReference.appelOffreReference"
+                                            class="form-control controle noBorder" >{{appelOffre.appelOffreIntitule}}
+                                            </option>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label">{{fr.chmp_Description}} :</label>
+                                        <div class="col-sm-12 col-md-9" >
+                                            <textarea  formControlName="plainteDescription" maxlength="1000"
+                                            style="height: 100px;"class="form-control" 
+                                            name="plainteDescription" [(ngModel)]="plainte.plainteDescription" 
+                                            [ngClass]="{ 'is-invalid': submitted && f['plainteDescription'].errors }"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!------------------------- upload Document ------------->
+                                <div class="form-group">
+                                    <label class="col-sm-12 col-md-2">{{fr.chmp_document}}</label>
+                                    <!--<label class="col-sm-12 col-md-1">{{fr.chmp_titre}}</label>-->
+                                    <div class=" col-sm-12 col-md-3 custom-file">
+                                        <div class="form-control controle noBorder">
+                                                <input  placeholder="Titre" name="documentNom"  maxlength="254" required
+                                                [(ngModel)]="document.documentNom"
+                                                formControlName="documentNom" 
+                                                class="form-control controle"
+                                                type="text" 
+                                                [ngClass]="{ 'is-invalid': submitted && f['documentNom'].errors }"
+                                            />
+                                            <div *ngIf="submitted && f['documentNom'].errors" class="invalid-feedback-doc">
+                                                <div *ngIf="f['documentNom'].errors['required']">{{fr.chmp_obligatoir}} {{fr.chmp_Titre}}</div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class=" col-sm-12 col-md-5 custom-file">
+                                        <input
+                                            type="file"
+                                            class="form-control-file form-control height-auto"
+                                        />
+                                    </div>
+                                    <button (click)="onPress()" class="btn btn-success btn-sm scroll-click"rel="content-y" role="button">
+                                        <i class="icon-copy fa fa-plus" aria-hidden="true"></i>
+                                    </button> 
+                                </div>
+                                    <div *ngFor="let obj of dataarray" class="form-group">
+                                        <label class="col-sm-12 col-md-2"></label>
+                                        <div class=" col-sm-12 col-md-3 custom-file">
+                                            <div class="form-control controle noBorder">
+                                                    <input    maxlength="254" required
+                                                    [(ngModel)]="document.documentNom"
+                                                    formControlName="documentNom" 
+                                                    class="form-control controle"
+                                                    type="text"  
+                                                    [ngClass]="{ 'is-invalid': submitted && f['documentNom'].errors }"
+                                                />
+                                                <div *ngIf="submitted && f['documentNom'].errors" class="invalid-feedback-doc">
+                                                    <div *ngIf="f['documentNom'].errors['required']">{{fr.chmp_obligatoir}} {{fr.chmp_Titre}}</div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=" col-sm-12 col-md-5 custom-file">
+                                            <input
+                                                type="file"
+                                                class="form-control-file form-control height-auto"
+                                            />
+                                        </div>
+                                    </div>
+                            <div class="text-center">
+                                <button  [routerLink]="'/ListePlainte'" class="btn btn-secondary "> {{fr.btn_annulation}} </button>
+                                <button style="margin-left: 10px;"  type="submit" class="btn btn-success "> {{fr.btn_ajout}} </button>
+                            </div>
+                    </form>
+                </div>{{document|json}}
+            </div>{{plainte|json}}
+        </div>
+    </div>
+</div>

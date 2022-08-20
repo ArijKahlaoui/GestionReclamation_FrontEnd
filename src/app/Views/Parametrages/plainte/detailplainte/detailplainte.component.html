@@ -1,0 +1,146 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="pd-20 card-box mb-30">
+                <div class="text-left">
+                    <button
+                        (click)="validation(plainte.plainteId)"
+                        class="btn btn-success btn-sm scroll-click"
+                        rel="content-y"
+                        role="button"><i class="icon-copy bi bi-check-lg"></i>
+                    </button>
+                    <button style="margin-left: 15px;"
+                        (click)="historique(plainte.plainteId)"
+                        class="btn btn-info btn-sm scroll-click"
+                        rel="content-y"
+                        role="button">H
+                    </button>
+                </div><br>
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="title">
+                                <h2 class="text-blue h4">{{fr.btn_details}} {{fr.nav_Plainte}}</h2>
+                            </div>
+                            <nav aria-label="breadcrumb" role="navigation">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a [routerLink]="'/ListePlainte'">{{fr.nav_Accueil}}</a>
+                                    </li>
+                                    <li class="breadcrumb-item text-blue " aria-current="page" aria-current="page">
+                                        {{fr.btn_details}} {{fr.nav_Plainte}}
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="pd-20 card-box mb-30">
+                    <div class="wizard-content" style="margin-top: 50px;">
+                        <form class="tab-wizard wizard-circle wizard needs-validation novalidate">
+                            <div class="row" >
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_Reference}} : </label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <p class="form-control controle noBorder"> {{plainteId}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_Date}} : </label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <p class="form-control controle noBorder"> {{plainteDate}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_appel_offre}} : </label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <p class="form-control controle noBorder"> {{plainte.appeloffre.appelOffreIntitule}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_Soumission}} : </label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <p class="form-control controle noBorder"> {{plainte.soumissionnaire.soumissionnaireNom}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_objet}} : </label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <p class="form-control controle noBorder"> {{plainteObjet}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label">{{fr.chmp_Description}} :</label>
+                                        <div class="col-sm-12 col-md-8" >
+                                            <textarea readonly
+                                                style="
+                                                height: fit-content ;
+                                                resize:none;
+                                                border:none; 
+                                                color:#000000; background-color: white;"
+                                                class="form-control controle" 
+                                                name="demandeTypeDescription">{{plainteDescription}}
+                                            </textarea>                                
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="title">
+                                <h2 class="text-blue h4">{{fr.btn_details}} {{fr.nav_Plainte}}</h2>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="pd-20 card-box mb-30">
+                    <table #matSort="matSort" mat-table matSort [dataSource]="dataSource" matSortDisableClear class="mat-elevation-z8">
+                        <ng-container matColumnDef="idDocument">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.chmp_Ref}} </th>
+                            <td  class="sizeRef" mat-cell *matCellDef="let element"> {{element.idDocument}} </td>
+                        </ng-container>
+                        
+                        <ng-container matColumnDef="documentNom" >
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.chmp_titre}} </th>
+                            <td class="sizeDesc" mat-cell *matCellDef="let element"> {{element.documentNom}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Lien" >
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.chmp_Lien}} </th>
+                            <td class="sizeDesc" mat-cell *matCellDef="let element"> {{element.Lien}} </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <mat-paginator #paginator
+                        [pageSize]="5"
+                        [pageSizeOptions]="[5, 10, 25, 100]">
+                    </mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

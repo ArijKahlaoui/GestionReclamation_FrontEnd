@@ -1,0 +1,228 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="pd-20 card-box mb-30">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="title">
+                                <h2 class="text-blue h4">{{fr.btn_details}} {{fr.nav_Plainte}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="pd-20 card-box mb-30">
+                    <div class="wizard-content" style="margin-top: 50px;">
+                        <form class="tab-wizard wizard-circle wizard needs-validation novalidate">
+                            <div class="row" >
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_Reference}} : </label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <p class="form-control controle noBorder"> {{plainteId}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label " datetime="YYYY-MM-DD">{{fr.chmp_Date}} : </label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <p class="form-control controle noBorder"> {{plainteDate}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_appel_offre}} : </label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <p class="form-control controle noBorder"> {{plainte.appeloffre.appelOffreIntitule}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_Soumission}} : </label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <p class="form-control controle noBorder"> {{plainte.soumissionnaire.soumissionnaireNom}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_objet}} : </label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <p class="form-control controle noBorder"> {{plainteObjet}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label">{{fr.chmp_Description}} :</label>
+                                        <div class="col-sm-12 col-md-8" >
+                                            <textarea readonly
+                                                style="
+                                                height: fit-content;
+                                                resize:none;
+                                                border:none; 
+                                                color:#000000; background-color: white;"
+                                                class="form-control controle" 
+                                                name="demandeTypeDescription">{{plainteDescription}}
+                                            </textarea>                                
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!---------------------- Soumissionnaire------------->
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="title">
+                            <h2 class="text-blue h4">{{fr.btn_details}} {{fr.chmp_Soumission}}</h2>
+                        </div>
+                        <div class="pd-20 card-box mb-30">
+                            <div class="wizard-content" style="margin-top: 50px;">
+                                <form class="tab-wizard wizard-circle wizard needs-validation novalidate">
+                                    <div class="row" >
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_raisonSociale}} : </label>
+                                                <div class="col-sm-12 col-md-8">
+                                                    <p class="form-control controle noBorder"> {{plainte.soumissionnaire.soumissionnaireRaisonSociale}} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-12 col-md-5 col-form-label ">{{fr.chmp_NumRegistreComm}} : </label>
+                                                <div class="col-sm-12 col-md-7">
+                                                    <p class="form-control controle noBorder"> {{plainte.soumissionnaire.soumissionnaireNumeroRegistreCommerce}} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" >
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_Nom}} : </label>
+                                                <div class="col-sm-12 col-md-8">
+                                                    <p class="form-control controle noBorder"> {{plainte.soumissionnaire.soumissionnaireNom}} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_Prenom}} : </label>
+                                                <div class="col-sm-12 col-md-8">
+                                                    <p class="form-control controle noBorder"> {{plainte.soumissionnaire.soumissionnairePrenom}} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" >
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_adresse}} : </label>
+                                                <div class="col-sm-12 col-md-8">
+                                                    <p class="form-control controle noBorder"> {{plainte.soumissionnaire.soumissionnaireAdresseSiegeSocial}} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_tel}} : </label>
+                                                <div class="col-sm-12 col-md-8">
+                                                    <p class="form-control controle noBorder"> {{plainte.soumissionnaire.soumissionnaireTel}} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---------------------- Traitement------------->
+                <div class="title">
+                    <h2 class="text-blue h4">{{fr.chmp_traitement}} {{fr.nav_Plainte}}</h2>
+                </div>
+                <div class="pd-20 card-box mb-30">
+                
+                    <div class="wizard-content" style="margin-top: 50px;">
+                        <form class="tab-wizard wizard-circle wizard needs-validation novalidate">
+                            
+                                <div class="row" >
+                                    <div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-12 col-md-3 col-form-label">{{fr.nav_decision}} :&ensp;<span>*
+                                                </span></label>
+                                            <div class="col-sm-12 col-md-3">
+                                                <select formControlName="etapesDemandesActeurType"
+                                                    name="etapesDemandesActeurType"
+                                                    [(ngModel)]="decisions.decisionId"
+                                                    class=" custom-select2 form-control ">
+                                                    <option *ngFor="let act of decisions" [value]="act.decisionId">
+                                                        {{act.decisionLibelle}}
+                                                    </option>
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div >
+                                        <div class="form-group row">
+                                            <label class="col-sm-12 col-md-3 col-form-label">{{fr.chmp_reponse}} :</label>
+                                            <div class="col-sm-12 col-md-5" >
+                                                <textarea  formControlName="decisionDescription" maxlength="1000"
+                                                style="height: 100px; resize: none;"
+                                                class="form-control" 
+                                                name="decisionDescription" 
+                                           ></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form>
+                                        <div class="form-group">
+                                            <label class="col-sm-12 col-md-4">{{fr.chmp_decisionLib}} :</label>
+                                            <div class=" col-sm-12 col-md-5 custom-file">
+                                                <input
+                                                    type="file"
+                                                    class="form-control-file form-control height-auto"
+                                                />
+                                            </div>
+                                            <div class=" col-sm-12 col-md-3 custom-file">
+                                                <button (click)="onPress()" id="add_more_fields" class="btn btn-success btn-sm scroll-click"rel="content-y" role="button">
+                                                <i class="icon-copy fa fa-plus" aria-hidden="true"></i>
+                                            </button> 
+                                            </div>
+                                                  
+                                        </div>
+                                    </form>
+                                    <form *ngFor="let obj of dataarray">
+                                        <div class="form-group">
+                                            <label class="col-sm-12 col-md-4"></label>
+                                            <div class=" col-sm-12 col-md-5 custom-file">
+                                                <input type="file" class="form-control-file form-control height-auto"/>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="text-center">
+                                    <button  type="submit" class="btn btn-success "> {{fr.btn_validation}} </button>
+                                    <button style="margin-left: 10px;" [routerLink]="'/ListePlainte'" class="btn btn-secondary "> {{fr.btn_annulation}} </button>
+                                </div> 
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

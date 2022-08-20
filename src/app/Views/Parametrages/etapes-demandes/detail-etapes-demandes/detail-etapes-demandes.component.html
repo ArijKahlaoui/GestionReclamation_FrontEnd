@@ -1,0 +1,144 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="pd-20 card-box mb-30">
+                <div class="text-left">
+                    <button
+                        (click)="ajoutEtp(type.demandeTypeId)"
+                        class="btn btn-success btn-sm scroll-click"
+                        rel="content-y"
+                        role="button"><i class="icon-copy fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                    <button style="margin-left: 15px;"
+                        (click)="modif(etape.etapesDemandesId)"
+                        class="btn btn-warning btn-sm scroll-click"
+                        rel="content-y"
+                        role="button"><i class="icon-copy fi-pencil"></i>
+                    </button>
+                    <button style="margin-left: 15px;"
+                        [routerLink]="'/detailDem/'+type.demandeTypeId"
+                        class="btn btn-danger btn-sm scroll-click"
+                        rel="content-y"
+                        role="button"><i class="icon-copy fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>       
+                
+                
+                
+                <!-- Détails Types Demande -->
+                <div class="col-md-6 col-sm-12">
+                    <div class="title">
+                        <h2 class="text-blue h4">{{fr.nav_typeDemande}}</h2>
+                    </div>
+                </div>
+                <div class="pd-20 card-box mb-30">
+                    <div class="wizard-content" >
+                        <form class="tab-wizard wizard-circle wizard needs-validation novalidate">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label ">{{fr.chmp_Libelle}} : </label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <p class="form-control controle noBorder"> {{type.demandeTypeLibelle}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label">{{fr.chmp_Acronyme}} : </label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <p class="form-control controle noBorder">{{type.demandeTypeAcronym}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label">{{fr.chmp_Description}} :</label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <textarea readonly style="
+                                            height: fit-content;
+                                                        resize:none;
+                                                        border:none; 
+                                                        color:#000000; background-color: white;" class="form-control"
+                                                        name="demandeTypeDescription">{{type.demandeTypeDescription}}
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!------- Consultation EtapesDemandes ------------>
+                <div class="title">
+                    <h2 class="text-blue h4">{{fr.nav_Consulter}} {{fr.nav_EtapeDemande}}</h2>
+                </div>
+                <div class="pd-20 card-box mb-30">
+                    <div class="wizard-content" >
+                        <form class="tab-wizard wizard-circle wizard needs-validation novalidate">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label ">{{fr.chmp_ordre}} : </label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <p class="form-control controle noBorder"> {{etape.etapesDemandesOrdre}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label">{{fr.chmp_Acteur}} : </label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <p class="form-control controle noBorder">{{etape.etapesDemandesActeurType.acteurTypeDesignationCourte}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label ">{{fr.chmp_Libelle}} : </label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <p class="form-control controle noBorder"> {{etape.etapesDemandesLibelle}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-4 col-form-label">{{fr.chmp_Delais}} : </label>
+                                        <div class="col-sm-12 col-md-8">
+                                            <p class="form-control controle noBorder">
+                                                {{etape.etapesDemandesDelaiExecution}}
+                                                <span *ngIf="etape.etapesDemandesDureeJourOuvrable == true">*</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label" style="display:inlines;">{{fr.chmp_Description}} :</label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <textarea readonly style="height: fit-content;
+                                                resize:none;display:inlines;
+                                                border:none; 
+                                                color:#000000; background-color: white;" class="form-control"
+                                                name="demandeTypeDescription">{{etape.etapesDemandesDescription}}
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

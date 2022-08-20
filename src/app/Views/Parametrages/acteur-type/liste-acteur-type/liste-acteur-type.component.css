@@ -1,0 +1,47 @@
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.sizeDesc{
+  word-break:break-all;
+  width: 20%;
+  word-wrap: break-word;
+}
+
+.sizeRef{
+  width: 2%;
+  padding-left: 13px;
+}
+
+.sizeAcro{
+  width: 8%;
+  padding-left: 13px;
+}
+
+.sizeLib{
+  width: 12%;
+}
+
+.sizeOp{
+  width: 11%;
+  padding-left: 15px;
+}
+th td{
+  width: 25%;
+  
+}
+.block {
+display: block;
+width: 10%;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,194 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h2 class="text-blue h4">{{fr.btn_details}} {{fr.nav_typeDemande}}</h2>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a [routerLink]="'/ListeDem'" >{{fr.btn_Liste}} {{fr.nav_typeDemande}}</a>
+                                </li>
+                                <li class="breadcrumb-item text-blue " aria-current="page">
+                                    {{fr.nav_Consulter}} {{fr.nav_EtapeDemande}}
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="pd-20 card-box mb-30">
+                <div class="col-md-6 col-sm-12">
+                    <div class="clearfix mb-20">
+                        <button
+                            (click)="ajoutEtp(type.demandeTypeId)"
+                            class="btn btn-success btn-sm scroll-click"
+                            rel="content-y"
+                            role="button"
+                            ><i class="icon-copy fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Detail Demandes-->
+                <div class="row" >
+                    <div class="col-md-12 col-sm-12">
+                        <div class="title">
+                            <h2 class="text-blue h4">{{fr.btn_details}} {{fr.nav_typeDemande}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="pd-20 card-box mb-30" >
+                    <div class="wizard-content" >
+                        <form class="tab-wizard wizard-circle wizard needs-validation novalidate">
+                            <div class="row" >
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label ">{{fr.chmp_Libelle}} : </label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <p class="form-control controle noBorder"> {{demandeTypeLibelle}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" >
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label" >{{fr.chmp_Acronyme}} : </label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <p class="form-control controle noBorder">{{demandeTypeAcronym}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label">{{fr.chmp_Description}} :</label>
+                                        <div class="col-sm-12 col-md-9" >
+                                            <textarea readonly
+                                                style="
+                                                resize:none;
+                                                height: fit-content;
+                                                border:none; 
+                                                color:#000000; background-color: white;"
+                                                class="form-control" 
+                                                name="demandeTypeDescription">{{demandeTypeDescription}}
+                                            </textarea>                                
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Liste Etapes Demandes-->
+                <div class="title">
+                    <h2 class="text-blue h4">{{fr.btn_Liste}} {{fr.nav_EtapeDemande}}</h2>
+                </div>
+                <div class="pd-20 card-box mb-30">
+                    <table mat-table [dataSource]="dataSource" #matSort="matSort"   matSort   #table 
+                        cdkDropList [cdkDropListData]="dataSource.data" (cdkDropListDropped)="drop($event)"
+                        [cdkDropListEnterPredicate]="noReturnPredicate"
+
+                        matSortActive="etapesDemandesOrdre" 
+                        matSortDirection="asc" matSortDisableClear class="mat-elevation-z8">
+                        
+                        <ng-container  matColumnDef="etapesDemandesOrdre">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef > {{fr.ordre}} </th>
+                            <td class="sizeRef drag-handle" mat-cell *matCellDef="let element" cdkDragHandle> {{element.etapesDemandesOrdre}} </td>
+                        </ng-container>
+                        
+                        <ng-container matColumnDef="etapesDemandesLibelle">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.Etapes}} </th>
+                            <td class="sizeLib" mat-cell *matCellDef="let element" > {{element.etapesDemandesLibelle}} </td>
+                        </ng-container>
+                        
+                        <ng-container matColumnDef="etapesDemandesDelaiExecution" >
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.chmp_Delais}} </th>
+                            <td class="sizeAcro" mat-cell *matCellDef="let element"> {{element.etapesDemandesDelaiExecution}} <span *ngIf="element.etapesDemandesDureeJourOuvrable == true">*</span></td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="etapesDemandesActeurType" >
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.Responsable}} </th>
+                            <td class="sizeDesc" mat-cell *matCellDef="let element"> {{element.etapesDemandesActeurType.acteurTypeDesignationCourte}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="etapesDemandesDescription" >
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.chmp_Description}} </th>
+                            <td class="sizeDesc" mat-cell *matCellDef="let element"> {{element.etapesDemandesDescription}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="operations" >
+                            <th class="text-center" mat-header-cell *matHeaderCellDef> {{fr.chmp_Operation}} </th>
+                            <td class="sizeOp text-center" mat-cell *matCellDef="let element" >
+                                <button (click)="detailEtp(element.etapesDemandesId)" class="btn btn-info" >
+                                    <i class="dw dw-eye"></i>
+                                </button>
+                                <button (click)="modif(element.etapesDemandesId)" style="margin-left: 10px;" class="btn btn-warning">
+                                    <i class="icon-copy fi-pencil"></i>
+                                </button>
+                                <a class="btn btn-danger " (click)="supp(element.etapesDemandesId)" style="margin-left: 10px;" >
+                                    <i class="icon-copy bi bi-trash3-fill"  ></i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;" cdkDrag [cdkDragData]="row" ></tr>
+                    </table>
+                    <mat-paginator #paginator
+                        [pageSize]="5"
+                        [pageSizeOptions]="[5, 10, 25, 100]">
+                    </mat-paginator>
+                    <div>
+                    {{fr.signification_etoil}}
+                </div>
+
+                
+
+
+                    <!--<table  class="row-border hover" matSortActive="etapesDemandesOrdre" matSortDirection="asc" matSortDisableClear>
+                        <thead>
+                          <tr>
+                            <th class="sizeRef" [appSort]="etapes" data-order="asc" data-name="etapesDemandesOrdre">{{fr.ordre}}</th>
+                              <th class="sizeLib" [appSort]="etapes" data-order="asc">{{fr.Etapes}}</th>
+                              
+                              <th class="sizeAcro" [appSort]="etapes" data-order="asc">{{fr.Responsable}}</th>
+                              <th class="sizeDesc" [appSort]="etapes" data-order="asc">{{fr.chmp_Description}}</th>
+                              <th class="sizeOp text-center" [appSort]="etapes" data-order="asc">{{fr.chmp_Operation}}</th>
+                          </tr>
+                        </thead>
+                        <tbody cdkDropList (cdkDropListDropped)="drop($event)">
+                          <tr *ngFor="let etape of etapes" cdkDrag cdkDragLockAxis="y">
+                            <td class="sizeRef">{{ etape.etapesDemandesOrdre }} </td>
+                            <td class="sizeLib">{{ etape.etapesDemandesLibelle }}</td>
+                            <td class="sizeDesc">{{etape.etapesDemandesActeurType.acteurTypeDesignationCourte}}</td>
+                            <td class="sizeDesc">{{ etape.etapesDemandesDescription }}</td>
+                            <td class="sizeOp text-center" >
+                                <button (click)="detailEtp(etape.etapesDemandesId)" style="margin-bottom: 10px;"  class="btn btn-info" >
+                                    <i class="dw dw-eye"></i>
+                                </button>
+                                <button (click)="modif(etape.etapesDemandesId)" style="margin-left: 10px;margin-bottom: 10px;" class="btn btn-warning">
+                                    <i class="icon-copy fi-pencil"></i>
+                                </button>
+                                <a class="btn btn-danger " (click)="supp(etape.etapesDemandesId)" style="margin-left: 10px;margin-bottom: 10px;" >
+                                    <i class="icon-copy bi bi-trash3-fill"  ></i>
+                                </a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <mat-paginator #paginator
+                        [pageSize]="5"
+                        [pageSizeOptions]="[5, 10, 25, 100]">
+                    </mat-paginator>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>

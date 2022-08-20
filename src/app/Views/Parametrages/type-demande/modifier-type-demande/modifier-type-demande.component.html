@@ -1,0 +1,93 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h2 class="text-blue h4">{{fr.btn_modification}} {{fr.nav_typeDemande}}</h2>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a [routerLink]="'/ListeDem'">{{fr.nav_Accueil}}</a>
+                                </li>
+                                <li class="breadcrumb-item text-blue " aria-current="page">
+                                    {{fr.btn_modification}} {{fr.nav_typeDemande}}
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="pd-20 card-box mb-30">
+                <div class="wizard-content">
+                    <form [formGroup]="formEdit" *ngIf="type" (submit)="update()" class="tab-wizard wizard-circle wizard">
+                        <section [hidden]="isupdated">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label">{{fr.chmp_Libelle}} :&ensp;<span>*</span></label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <input 
+                                                name="demandeTypeLibelle" required maxlength="45"
+                                                [(ngModel)]="type.demandeTypeLibelle" type="text" class="form-control" 
+                                                formControlName="demandeTypeLibelle"
+                                                [ngClass]="{ 'is-invalid': !isupdated && f['demandeTypeLibelle'].errors }"/>
+                                                <div *ngIf="!isupdated && f['demandeTypeLibelle'].errors" class="invalid-feedback">
+                                                    <div *ngIf="f['demandeTypeLibelle'].errors['required']">{{fr.chmp_obligatoir}} {{fr.chmp_Libelle}}</div>
+                                                    <div *ngIf="f['demandeTypeLibelle'].errors['maxlength']">
+                                                        {{fr.maxlength}}
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label">{{fr.chmp_Acronyme}} :&ensp;<span>*</span></label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <input name="demandeTypeAcronym"
+                                                [(ngModel)]="type.demandeTypeAcronym" type="text" maxlength="45"
+                                                class="form-control" 
+                                                formControlName="demandeTypeAcronym"
+                                                [ngClass]="{ 'is-invalid': !isupdated && f['demandeTypeAcronym'].errors }"/>
+                                                <div *ngIf="!isupdated && f['demandeTypeAcronym'].errors" class="invalid-feedback">
+                                                    <div *ngIf="f['demandeTypeAcronym'].errors['required']">{{fr.chmp_obligatoir}} {{fr.chmp_Acronyme}}</div>
+                                                    <div *ngIf="f['demandeTypeAcronym'].errors['maxlength']">
+                                                        {{fr.maxlength}}
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label">{{fr.chmp_Description}} :</label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <textarea class="form-control" maxlength="1000"
+                                                name="demandeTypeDescription" [(ngModel)]="type.demandeTypeDescription" 
+                                                formControlName="demandeTypeDescription"
+                                                [ngClass]="{ 'is-invalid': !isupdated && f['demandeTypeDescription'].errors }"></textarea>
+                                                <div *ngIf="!isupdated && f['demandeTypeDescription'].errors" class="invalid-feedback">
+                                                    <div *ngIf="f['demandeTypeDescription'].errors['maxlength']">{{fr.maxlength}}</div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <button [routerLink]="'/ListeDem'" [hidden]="isupdated"  class="btn btn-secondary">{{fr.btn_annulation}}</button>
+                                <button style="margin-left: 10px;" type="submit" class="btn btn-warning "> {{fr.btn_modification}}</button>
+                            </div>
+                        </section>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

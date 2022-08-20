@@ -1,0 +1,104 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h2 class="text-blue h4">{{fr.btn_ajout}} {{fr.nav_document_categorie}}</h2>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a [routerLink]="'/ListeDocCat'">{{fr.nav_Accueil}}</a>
+                                </li>
+                                <li class="breadcrumb-item text-blue " aria-current="page">
+                                    {{fr.btn_ajout}} {{fr.nav_document_categorie}}
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="pd-20 card-box mb-30">
+                
+                <div class="wizard-content" style="margin-top: 50px;">
+                    <form [formGroup]="form" (ngSubmit)="formSubmit()" class="tab-wizard wizard-circle wizard needs-validation novalidate">
+                        
+                            <div class="row" >
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label ">{{fr.chmp_Libelle}} :&ensp;<span> *</span></label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <input  name="documentCategorieLibelle" required maxlength="50"
+                                                [(ngModel)]="categorie.documentCategorieLibelle"
+                                                formControlName="documentCategorieLibelle" 
+                                                class="form-control controle"
+                                                type="text" 
+                                                [ngClass]="{ 'is-invalid': submitted && f['documentCategorieLibelle'].errors }"
+                                            />
+                                            <div *ngIf="submitted && f['documentCategorieLibelle'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['documentCategorieLibelle'].errors['required']">{{fr.chmp_obligatoir}} {{fr.chmp_Libelle}}</div>
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label ">{{fr.chmp_LibelleAR}} :&ensp;<span> *</span></label>
+                                        <div class="col-sm-12 col-md-9">
+                                            <input  name="documentCategorieLibelleAR" required maxlength="50"
+                                                [(ngModel)]="categorie.documentCategorieLibelleAr"
+                                                formControlName="documentCategorieLibelleAr" 
+                                                class="form-control controle"
+                                                type="text" 
+                                                [ngClass]="{ 'is-invalid': submitted && f['documentCategorieLibelleAr'].errors }"
+                                            />
+                                            <div *ngIf="submitted && f['documentCategorieLibelleAr'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['documentCategorieLibelleAr'].errors['required']">{{fr.chmp_obligatoir}} {{fr.chmp_LibelleAR}}</div>
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label">{{fr.chmp_Description}} :</label>
+                                        <div class="col-sm-12 col-md-9" >
+                                            <textarea  formControlName="documentCategorieDescription" maxlength="1000"
+                                            style="height: 100px;"class="form-control" 
+                                            name="documentCategorieDescription" [(ngModel)]="categorie.documentCategorieDescription" 
+                                            [ngClass]="{ 'is-invalid': submitted && f['documentCategorieDescription'].errors }"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-3 col-form-label">{{fr.chmp_DescriptionAR}} :</label>
+                                        <div class="col-sm-12 col-md-9" >
+                                            <textarea  formControlName="documentCategorieDescriptionAr" maxlength="1000"
+                                            style="height: 100px;"class="form-control" 
+                                            name="documentCategorieDescriptionAr" [(ngModel)]="categorie.documentCategorieDescriptionAr" 
+                                            [ngClass]="{ 'is-invalid': submitted && f['documentCategorieDescriptionAr'].errors }"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <button  [routerLink]="'/ListeDocCat'" class="btn btn-secondary "> {{fr.btn_annulation}} </button>
+                                <button style="margin-left: 10px;" type="submit" class="btn btn-success "> {{fr.btn_ajout}} </button>
+                            </div> 
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

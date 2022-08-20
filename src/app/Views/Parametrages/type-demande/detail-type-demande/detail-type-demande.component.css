@@ -1,0 +1,60 @@
+.noBorder{
+    border: none;
+}
+
+textarea:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.sizeDesc{
+  word-break:break-all;
+  width: 20%;
+  word-wrap: break-word;
+}
+
+.sizeRef{
+  width: 7%;
+  padding-left: 13px;
+}
+
+/*.sizeAcro{
+  width: 10%;
+  padding-left: 13px;
+}
+
+.sizeLib{
+  width: 12%;
+}
+
+.sizeOp{
+  width: 11%;
+  padding-left: 15px;
+}*/
+th td{
+  width: 25%;
+  
+}
+.block {
+display: block;
+width: 10%;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
+.cdk-drop-list-dragging .cdk-drag {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }

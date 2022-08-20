@@ -1,0 +1,29 @@
+span{
+    color: red;
+}
+
+.block {
+    display: block;
+    width: 10%;
+}
+
+.noBorder{
+    border: none;
+}
+
+
+
+.invalid-feedback-doc {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 70%;
+    color: #dc3545;
+}
+
+.was-validated :invalid ~ .invalid-feedback-doc,
+.was-validated :invalid ~ .invalid-tooltip,
+.is-invalid ~ .invalid-feedback-doc,
+.is-invalid ~ .invalid-tooltip {
+  display: block;
+}

@@ -1,0 +1,58 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="title">
+                            <h2 class="text-blue h4">{{fr.btn_details}} {{fr.nav_decision}}</h2>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a [routerLink]="'/ListeEtat'">{{fr.nav_Accueil}}</a>
+                                </li>
+                                <li class="breadcrumb-item text-blue " aria-current="page" aria-current="page">
+                                    {{fr.btn_details}} {{fr.nav_decision}}
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="pd-20 card-box mb-30">
+                <div class="wizard-content" style="margin-top: 50px;">
+                    <form class="tab-wizard wizard-circle wizard needs-validation novalidate">
+                        <div class="row" >
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-12 col-md-3 col-form-label ">{{fr.chmp_Libelle}} : </label>
+                                    <div class="col-sm-12 col-md-9">
+                                        <p class="form-control controle noBorder"> {{decisionLibelle}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-12 col-md-3 col-form-label">{{fr.chmp_Description}} :</label>
+                                    <div class="col-sm-12 col-md-9" >
+                                        <textarea readonly
+                                            style="
+                                            resize:none;
+                                            border:none; 
+                                            color:#000000; background-color: white;"
+                                            class="form-control controle" 
+                                            name="demandeTypeDescription">{{decisionDescription}}
+                                        </textarea>                                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="left-side-bar cursor-btn">
+    <div class="brand-logo">
+        <a href="index.html">
+            <img src="assets/vendors/images/deskapp-logo.svg" alt="" class="dark-logo" />
+            <img
+                src="assets/vendors/images/deskapp-logo-white.svg"
+                alt=""
+                class="light-logo"
+            />
+        </a>
+        <div  class="close-sidebar"  data-toggle="left-sidebar-close">
+            <i class="ion-close-round"></i>
+        </div>
+    </div>
+    <div class="menu-block customscroll" >
+        <div class="sidebar-menu" >
+            <ul id="accordion-menu" >
+                <li>
+                    <a  class="dropdown-toggle no-arrow">
+                        <span class="micon bi bi-house"></span>
+                        <span class="mtext">{{fr.nav_Accueil}}</span>
+                    </a>
+                <li>
+                    <div class="dropdown-divider"></div>
+                </li>
+                <li>
+                    <a [routerLink]="'/ListeDem'"
+                        class="dropdown-toggle no-arrow"
+                    >
+                    <span class="micon bi bi-hdd-stack"></span>
+                    <span class="mtext">{{fr.btn_Liste}} {{fr.nav_typeDemande}}</span>       
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="'/ListeEtat'"
+                        class="dropdown-toggle no-arrow"
+                    >
+                    <span class="micon bi bi-hdd-stack"></span>
+                    <span class="mtext">{{fr.btn_Liste}} {{fr.nav_EtatSuivi}}</span>       
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="'/ListeDec'"
+                        class="dropdown-toggle no-arrow"
+                    >
+                    <span class="micon bi bi-hdd-stack"></span>
+                    <span class="mtext">{{fr.btn_Liste}} {{fr.nav_decision}}</span>       
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="'/ListeAct'"
+                        class="dropdown-toggle no-arrow"
+                    >
+                    <span class="micon bi bi-hdd-stack"></span>
+                    <span class="mtext">{{fr.btn_Liste}} {{fr.nav_ActeurType}}</span>       
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="'/ListeDocCat'"
+                        class="dropdown-toggle no-arrow"
+                    >
+                    <span class="micon bi bi-hdd-stack"></span>
+                    <span class="mtext">{{fr.btn_Liste}} {{fr.a_document_categorie}}</span>       
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="'/ListePlainte'"
+                        class="dropdown-toggle no-arrow"
+                    >
+                    <span class="micon bi bi-hdd-stack"></span>
+                    <span class="mtext">{{fr.btn_Liste}} {{fr.nav_Plainte}}</span>       
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay"></div>
+</div>

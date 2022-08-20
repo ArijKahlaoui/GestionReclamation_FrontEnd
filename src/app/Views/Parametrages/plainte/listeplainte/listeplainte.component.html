@@ -1,0 +1,90 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main-container" >
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h2 class="text-blue h4">{{fr.btn_Liste}} {{fr.nav_Plainte}}</h2>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a [routerLink]="'/ListePlainte'" >{{fr.nav_Accueil}}</a>
+                                </li>
+                                <li class="breadcrumb-item text-blue " aria-current="page">
+                                    {{fr.btn_Liste}} {{fr.nav_Plainte}}
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="card-box mb-30">
+                <div class="pd-20">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="clearfix mb-20">
+                            <button
+                                (click)="ajout()"
+                                class="btn btn-success btn-sm scroll-click"
+                                rel="content-y"
+                                role="button"
+                                ><i class="icon-copy fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <mat-form-field appearance="standard">
+                        <mat-label>{{fr.chercher}}</mat-label>
+                        <input matInput (keyup)="applyFilter($event)" #input>
+                    </mat-form-field>
+                    <table #matSort="matSort" mat-table matSort matSortActive="plainteId"  matSortDirection="desc" matSortDisableClear [dataSource]="dataSource" matSortDisableClear class="mat-elevation-z8">
+                        <ng-container matColumnDef="plainteId">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.chmp_Ref}} </th>
+                            <td  class="sizeRef" mat-cell *matCellDef="let element"> {{element.plainteId}} </td>
+                        </ng-container>
+                        
+                        <ng-container matColumnDef="plainteSoumissionReference" >
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.chmp_Soumission}} </th>
+                            <td class="sizeDesc" mat-cell *matCellDef="let element"> {{element.soumissionnaire.soumissionnaireNom}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="plainteAoReference" >
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.chmp_appel_offre}} </th>
+                            <td class="sizeDesc" mat-cell *matCellDef="let element"> {{element.appeloffre.appelOffreIntitule}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="plainteObjet">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.chmp_objet}} </th>
+                            <td class="sizeLib" mat-cell *matCellDef="let element"> {{element.plainteObjet}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="operations" >
+                            <th class="text-center" mat-header-cell *matHeaderCellDef> {{fr.chmp_Operation}} </th>
+                            <td class="sizeOp text-center" mat-cell *matCellDef="let element" >
+                                <button class="btn btn-info" (click)="detail(element.plainteId)">
+                                    <i class="dw dw-eye"></i>
+                                </button>
+                                <button style="margin-left: 10px;" (click)="validation(element.plainteId)" class="btn btn-success">
+                                    <i class="icon-copy bi bi-check-lg"></i>
+                                </button>
+                                
+                            </td>
+                        </ng-container>
+                        
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <mat-paginator #paginator
+                        [pageSize]="5"
+                        [pageSizeOptions]="[5, 10, 25, 100]">
+                    </mat-paginator>
+                </div>
+            </div>
+        </div>{{plaintes|json}}
+    </div>
+</div>
+
