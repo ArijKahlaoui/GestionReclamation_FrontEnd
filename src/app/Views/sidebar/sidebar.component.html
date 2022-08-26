@@ -20,59 +20,138 @@
                         <span class="micon bi bi-house"></span>
                         <span class="mtext">{{fr.nav_Accueil}}</span>
                     </a>
+                </li>
                 <li>
                     <div class="dropdown-divider"></div>
                 </li>
-                <li>
-                    <a [routerLink]="'/ListeDem'"
-                        class="dropdown-toggle no-arrow"
-                    >
-                    <span class="micon bi bi-hdd-stack"></span>
-                    <span class="mtext">{{fr.btn_Liste}} {{fr.nav_typeDemande}}</span>       
-                    </a>
+
+                <li >
+                    <mat-accordion >
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                                            (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <span class="micon bi bi-hdd-stack"></span>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                               <a  [routerLink]="'/ListeDem'">{{fr.btn_Liste}} {{fr.nav_typeDemande}}</a> 
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <span class="micon "><i class="icon-copy bi bi-plus-lg"></i></span>
+                                    <a [routerLink]="'/ajoutDem'" class="mtext">{{fr.btn_ajout}} {{fr.nav_typeDemande}}</a>
+                        </mat-expansion-panel>
+                    </mat-accordion>
                 </li>
                 <li>
-                    <a [routerLink]="'/ListeEtat'"
-                        class="dropdown-toggle no-arrow"
-                    >
-                    <span class="micon bi bi-hdd-stack"></span>
-                    <span class="mtext">{{fr.btn_Liste}} {{fr.nav_EtatSuivi}}</span>       
-                    </a>
+                    <mat-accordion >
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                                            (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <span class="micon bi bi-hdd-stack"></span>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                               <a  [routerLink]="'/ListeEtat'">{{fr.btn_Liste}} {{fr.nav_EtatSuivi}}</a> 
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <span class="micon "><i class="icon-copy bi bi-plus-lg"></i></span>
+                                    <a [routerLink]="'/ajoutEtat'" class="mtext">{{fr.btn_ajout}} {{fr.nav_EtatSuivi}}</a>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </li>
+                <li >
+                    <mat-accordion >
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                                            (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <span class="micon bi bi-hdd-stack"></span>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                               <a  [routerLink]="'/ListeDec'">{{fr.btn_Liste}} {{fr.nav_decision}}</a> 
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <span class="micon "><i class="icon-copy bi bi-plus-lg"></i></span>
+                                    <a [routerLink]="'/ajoutDec'" class="mtext">{{fr.btn_ajout}} {{fr.nav_decision}}</a>
+                        </mat-expansion-panel>
+                    </mat-accordion>
                 </li>
                 <li>
-                    <a [routerLink]="'/ListeDec'"
-                        class="dropdown-toggle no-arrow"
-                    >
-                    <span class="micon bi bi-hdd-stack"></span>
-                    <span class="mtext">{{fr.btn_Liste}} {{fr.nav_decision}}</span>       
-                    </a>
+                    <mat-accordion >
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                                            (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <span class="micon bi bi-hdd-stack"></span>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                               <a  [routerLink]="'/ListeAct'">{{fr.btn_Liste}} {{fr.nav_ActeurType}}</a> 
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <span class="micon "><i class="icon-copy bi bi-plus-lg"></i></span>
+                                    <a [routerLink]="'/ajoutAct'" class="mtext">{{fr.btn_ajout}} {{fr.nav_ActeurType}}</a>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </li>
+
+                <li>
+                    <mat-accordion >
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                                            (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <span class="micon bi bi-hdd-stack"></span>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                               <a  [routerLink]="'/ListeDocCat'">{{fr.btn_Liste}} {{fr.a_document_categorie}}</a> 
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <span class="micon "><i class="icon-copy bi bi-plus-lg"></i></span>
+                                    <a [routerLink]="'/ajoutDocCat'" class="mtext">{{fr.btn_ajout}} {{fr.a_document_categorie}}</a>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+
+                </li>
+    
+                <li>
+                    <mat-accordion >
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                                            (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <span class="micon bi bi-hdd-stack"></span>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                               <a [routerLink]="'/ListePlainte'">{{fr.btn_Liste}} {{fr.nav_Plainte}}</a> 
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <span class="micon "><i class="icon-copy bi bi-plus-lg"></i></span>
+                                    <a [routerLink]="'/ajoutPlainte'" class="mtext">{{fr.btn_ajout}} {{fr.nav_Plainte}}</a>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+
                 </li>
                 <li>
-                    <a [routerLink]="'/ListeAct'"
-                        class="dropdown-toggle no-arrow"
-                    >
-                    <span class="micon bi bi-hdd-stack"></span>
-                    <span class="mtext">{{fr.btn_Liste}} {{fr.nav_ActeurType}}</span>       
-                    </a>
-                </li>
-                <li>
-                    <a [routerLink]="'/ListeDocCat'"
-                        class="dropdown-toggle no-arrow"
-                    >
-                    <span class="micon bi bi-hdd-stack"></span>
-                    <span class="mtext">{{fr.btn_Liste}} {{fr.a_document_categorie}}</span>       
-                    </a>
-                </li>
-                <li>
-                    <a [routerLink]="'/ListePlainte'"
-                        class="dropdown-toggle no-arrow"
-                    >
-                    <span class="micon bi bi-hdd-stack"></span>
-                    <span class="mtext">{{fr.btn_Liste}} {{fr.nav_Plainte}}</span>       
-                    </a>
-                </li>
+                    <mat-accordion >
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <span class="micon bi bi-hdd-stack"></span>
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                <a [routerLink]="'/'"> {{fr.nav_parametrage}}</a> 
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </li>       
+                    
             </ul>
         </div>
     </div>
+    
+    
     <div class="mobile-menu-overlay"></div>
+
+    
 </div>

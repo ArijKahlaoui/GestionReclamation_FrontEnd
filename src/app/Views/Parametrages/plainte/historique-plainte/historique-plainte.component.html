@@ -1,1 +1,84 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="pd-20 card-box mb-30">
+                <div class="text-left">
+                    <button
+                        
+                        class="btn btn-success btn-sm scroll-click"
+                        rel="content-y"
+                        role="button"><i class="icon-copy bi bi-check-lg"></i>
+                    </button>
+                    <button style="margin-left: 15px;"
+                        
+                        class="btn btn-info btn-sm scroll-click"
+                        rel="content-y"
+                        role="button">H
+                    </button>
+                </div><br>
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="title">
+                                <h2 class="text-blue h4">{{fr.chmp_historique}} </h2>
+                            </div>
+                            <nav aria-label="breadcrumb" role="navigation">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a [routerLink]="'/ListePlainte'">{{fr.nav_Accueil}}</a>
+                                    </li>
+                                    <li class="breadcrumb-item text-blue " aria-current="page" aria-current="page">
+                                        {{fr.chmp_historique}} 
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="pd-20 card-box mb-30">
+                    <table #matSort="matSort" mat-table matSort [dataSource]="dataSource" matSortActive="historiqueDemandeDateDebutPrevue" matSortDirection="asc" matSortDisableClear class="mat-elevation-z8">
+                        <ng-container matColumnDef="HistoriqueDemandeDateDebutPrevue">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.DateDebutPrevue}} </th>
+                            <td  class="sizeRef" mat-cell *matCellDef="let element"> {{element.historiqueDemandeDateDebutPrevue}} </td>
+                        </ng-container>
+                        
+                        <ng-container matColumnDef="HistoriqueDemandeDateFinPrevue" >
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.DateFinPrevue}} </th>
+                            <td class="sizeDesc" mat-cell *matCellDef="let element"> {{element.historiqueDemandeDateFinPrevue}} </td>
+                        </ng-container>
 
+                        <ng-container matColumnDef="HistoriqueDemandeDateDebutReelle" >
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.DateDebutReelle}} </th>
+                            <td class="sizeDesc" mat-cell *matCellDef="let element"> {{element.historiqueDemandeDateDebutReelle}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="HistroriqueDemandeDateFinReelle" >
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.DateFinReelle}} </th>
+                            <td class="sizeDesc" mat-cell *matCellDef="let element"> {{element.histroriqueDemandeDateFinReelle}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="HistoriqueDemandeDureePrevue" >
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.DureePrevue}} </th>
+                            <td class="sizeDesc" mat-cell *matCellDef="let element"> {{element.historiqueDemandeDureePrevue}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="HistoriqueDemandeDureeReelle" >
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.DureeReelle}} </th>
+                            <td class="sizeDesc" mat-cell *matCellDef="let element"> {{element.historiqueDemandeDateDebutReelle}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <mat-paginator #paginator
+                        [pageSize]="5"
+                        [pageSizeOptions]="[5, 10, 25, 100]">
+                    </mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

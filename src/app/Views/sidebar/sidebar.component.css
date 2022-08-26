@@ -1,5 +1,513 @@
 .cursor-btn a {
    cursor: pointer;
    text-decoration: none; 
-   
+   color: black;
 }
+
+.submenu{
+   position: relative;background: rgba(236,240,244,.1);width: 89%;padding: 4px 6px;
+   border-radius: 0 0 8px 8px;
+
+}
+
+.dropdown-menu{
+	border: 0;
+	padding: 0;
+	overflow: hidden;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 28px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0px 0px 28px rgba(0, 0, 0, .1);
+	box-shadow: 0px 0px 28px rgba(0, 0, 0, .1);
+}
+.dropdown-item{
+	font-size: 15px;
+	font-weight: 400;
+	padding: 0.657rem 1rem;
+	letter-spacing: 0;
+	color: #444444;
+	font-family: 'Inter', sans-serif;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+	background: #ecf0f4;
+	color: #1b00ff;
+}
+
+.bootstrap-select .dropdown-menu li .dropdown-item:hover{
+	color: #1b00ff;
+}
+
+.bootstrap-select .dropdown-menu li .dropdown-item.active:hover{
+	background-color: #1b00ff;
+	color: #ffffff;
+}
+.bootstrap-select.show-tick .dropdown-menu .selected span.check-mark{
+	top: 13px;
+}
+
+.sidebar-menu .submenu:before{
+	content: "";
+	width: 1px;
+	height: 100%;
+	position: absolute;
+	left: 31px;
+	top: 0;
+	display: none;
+	background: none;
+	border-left: 2px dashed #1b00ff;
+}
+.sidebar-menu .submenu li{
+	position: relative;
+	padding: 2px 0;
+}
+.sidebar-menu .submenu li > a:before{
+	content: "\f208";
+	position: absolute;
+	line-height: 1;
+	left: 28px;
+	top: 50%;
+	-webkit-transform: translate(0px, -50%);
+	-moz-transform: translate(0px, -50%);
+	-o-transform: translate(0px, -50%);
+	-ms-transform: translate(0px, -50%);
+	transform: translate(0px, -50%);
+	font-family: Ionicons;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.sidebar-menu.icon-list-style-2 .submenu li > a:before{
+	content: "\f10c";
+	font-family: FontAwesome;
+}
+.sidebar-menu.icon-list-style-3 .submenu li > a:before{
+	content: "\eb1d";
+	font-family: dropways;
+}
+.sidebar-menu.icon-list-style-4 .submenu li > a:before{
+	content: "\edd2";
+	font-family: dropways;
+}
+.sidebar-menu.icon-list-style-5 .submenu li > a:before{
+	content: "\ee07";
+	font-family: dropways;
+}
+.sidebar-menu.icon-list-style-6 .submenu li > a:before{
+	content: "\ee36";
+	font-family: dropways;
+}
+
+.sidebar-menu .submenu li.dropdown:before{
+	display: none;
+}
+.sidebar-menu .submenu li a{
+	display: block;
+	padding: 14px 15px 14px 60px;
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 400;
+	border-radius: 8px;
+	position: relative;
+	font-family: 'Inter', sans-serif;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.sidebar-menu .submenu li.dropdown > a:before{
+	display: none;
+}
+.sidebar-menu  li a.dropdown-toggle{
+	padding: 11px 12px 11px 50px;
+	font-size: 15px;
+}
+.sidebar-menu .submenu.child{
+	padding-left: 15px;
+}
+.sidebar-menu .submenu li:hover > a:before{
+	left: 18px;
+}
+.sidebar-menu .submenu li a:hover, .sidebar-menu .submenu li a.active{
+	color: #ffffff;
+	background-color: rgba(0, 0, 0, .4);
+}
+.sidebar-menu > ul > li > .dropdown-toggle.active{
+	background-color: rgba(236, 240, 244, .19);
+}
+.sidebar-light .sidebar-menu > ul > li > .dropdown-toggle.active{
+	background-color: #142127;
+	color: #ffffff;
+}
+.sidebar-light .sidebar-menu > ul > li > .dropdown-toggle.active .micon{
+	color: #ffffff;
+}
+.sidebar-menu .dropdown-toggle.active, .sidebar-menu .dropdown-toggle.active .micon{
+	color: #ffffff;
+}
+
+
+.bootstrap-select.btn-group .dropdown-menu li a{
+	display: block;
+	font-size: 15px;
+	font-weight: 400;
+	padding: 0.55rem 1rem;
+	color: #667f87;
+	font-family: 'Inter', sans-serif;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+
+
+
+
+.wysihtml5-toolbar .dropdown-menu a{
+	display: block;
+	font-size: 15px;
+	font-weight: 400;
+	padding: 0.55rem 1rem;
+	color: #667f87;
+	font-family: 'Inter', sans-serif;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+
+.left-side-bar{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 280px;
+	height: 100%;
+	z-index: 1000;
+	background: #142127;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.left-side-bar .mCS-dark-2.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	background: #ecf0f4;
+}
+.left-side-bar:before{
+	content: "";
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.3);
+	display: none;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.left-side-bar.open{
+	left: 0;
+}
+.left-side-bar .menu-block{
+	height: calc(100vh - 70px);
+	padding: 6px 0;
+}
+.left-side-bar .close-sidebar{
+	font-size: 18px;
+	color: #888888;
+	cursor: pointer;
+	position: absolute;
+	right: 10px;
+	top: 20px;
+	display: none;
+}
+.sidebar-menu{
+	padding: 0px 0px 20px;
+}
+.sidebar-menu > ul > li{
+	padding: 2px 12px;
+}
+.sidebar-menu .dropdown-toggle{
+	display: block;
+	padding: 14px 15px 14px 67px;
+	font-size: 15px;
+	color: #ffffff;
+	font-weight: 500;
+	position: relative;
+	border-radius: 8px;
+	font-family: 'Inter', sans-serif;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.sidebar-menu .dropdown-toggle:after{
+	content: "\F282";
+	position: absolute;
+	right: 15px;
+	font-size: 16px;
+	font-weight: 700;
+	top: 50%;
+	transform: translate(0, -50%);
+	display: block;
+	font-family: bootstrap-icons;
+}
+.sidebar-menu .dropdown.show>.dropdown-toggle::after{
+	content: "\F286";
+}
+.sidebar-menu .dropdown-toggle.no-arrow:after{
+	display: none;
+}
+.sidebar-menu.icon-style-2 .dropdown-toggle:after{
+	content: "\F4FE";
+	font-size: 22px;
+	font-weight: 700;
+	font-family: bootstrap-icons;
+}
+.sidebar-menu.icon-style-2 .dropdown.show .dropdown-toggle:after{
+	content: "\F2EA";
+}
+
+.sidebar-menu.icon-style-3 .dropdown-toggle:after{
+	content: "\F280";
+	font-weight: 400;
+}
+.sidebar-menu.icon-style-3 .dropdown.show .dropdown-toggle:after{
+	content: "\F281"
+}
+
+.sidebar-menu .dropdown-toggle:hover, .sidebar-menu .show > .dropdown-toggle{
+	background: rgba(236, 240, 244, .19);
+	color: #ffffff;
+}
+.sidebar-menu .show > .dropdown-toggle{
+	border-radius: 8px 8px 0 0;
+}
+.sidebar-menu .dropdown-toggle .micon{
+	position: absolute;
+	left: 10px;
+	width: 42px;
+	height: 42px;
+	font-size: 22px;
+	font-weight: 400;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ffffff;
+	background-color: rgba(255,255,255,0);
+	top: 50%;
+	text-align: center;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	-webkit-transform: translate(0px, -50%);
+	-moz-transform: translate(0px, -50%);
+	-o-transform: translate(0px, -50%);
+	-ms-transform: translate(0px, -50%);
+	transform: translate(0px, -50%);
+}
+.sidebar-menu .dropdown-toggle:hover .micon, .sidebar-menu .show > .dropdown-toggle .micon{
+	color: #ffffff;
+}
+.sidebar-menu .dropdown-toggle .new{
+	font-size: 24px;
+	line-height: 14px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.sidebar-menu .dropdown-toggle .new:before{
+	line-height: 14px;
+}
+.sidebar-menu .submenu{
+	position: relative;
+	width: 100%;
+	display: none;
+	background: rgba(236,240,244,.1);
+	padding: 4px 6px;
+	border-radius: 0 0 8px 8px;
+}
+.sidebar-menu .submenu:before{
+	content: "";
+	width: 1px;
+	height: 100%;
+	position: absolute;
+	left: 31px;
+	top: 0;
+	display: none;
+	background: none;
+	border-left: 2px dashed #1b00ff;
+}
+.sidebar-menu .submenu li{
+	position: relative;
+	padding: 2px 0;
+}
+.sidebar-menu .submenu li > a:before{
+	content: "\f208";
+	position: absolute;
+	line-height: 1;
+	left: 28px;
+	top: 50%;
+	-webkit-transform: translate(0px, -50%);
+	-moz-transform: translate(0px, -50%);
+	-o-transform: translate(0px, -50%);
+	-ms-transform: translate(0px, -50%);
+	transform: translate(0px, -50%);
+	font-family: Ionicons;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.sidebar-menu.icon-list-style-2 .submenu li > a:before{
+	content: "\f10c";
+	font-family: FontAwesome;
+}
+.sidebar-menu.icon-list-style-3 .submenu li > a:before{
+	content: "\eb1d";
+	font-family: dropways;
+}
+.sidebar-menu.icon-list-style-4 .submenu li > a:before{
+	content: "\edd2";
+	font-family: dropways;
+}
+.sidebar-menu.icon-list-style-5 .submenu li > a:before{
+	content: "\ee07";
+	font-family: dropways;
+}
+.sidebar-menu.icon-list-style-6 .submenu li > a:before{
+	content: "\ee36";
+	font-family: dropways;
+}
+
+.sidebar-menu .submenu li.dropdown:before{
+	display: none;
+}
+.sidebar-menu .submenu li a{
+	display: block;
+	padding: 14px 15px 14px 60px;
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 400;
+	border-radius: 8px;
+	position: relative;
+	font-family: 'Inter', sans-serif;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.sidebar-menu .submenu li.dropdown > a:before{
+	display: none;
+}
+.sidebar-menu .submenu li a.dropdown-toggle{
+	padding: 14px 15px 14px 60px;
+	font-size: 15px;
+}
+.sidebar-menu .submenu.child{
+	padding-left: 15px;
+}
+.sidebar-menu .submenu li:hover > a:before{
+	left: 18px;
+}
+.sidebar-menu .submenu li a:hover, .sidebar-menu .submenu li a.active{
+	color: #ffffff;
+	background-color: rgba(0, 0, 0, .4);
+}
+.sidebar-menu > ul > li > .dropdown-toggle.active{
+	background-color: rgba(236, 240, 244, .19);
+}
+.sidebar-light .sidebar-menu > ul > li > .dropdown-toggle.active{
+	background-color: #142127;
+	color: #ffffff;
+}
+.sidebar-light .sidebar-menu > ul > li > .dropdown-toggle.active .micon{
+	color: #ffffff;
+}
+.sidebar-menu .dropdown-toggle.active, .sidebar-menu .dropdown-toggle.active .micon{
+	color: #ffffff;
+}
+
+.mobile-menu-overlay{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #121421;
+	opacity: 0.6;
+	z-index: 123;
+	background-size: 20px;
+	background-position: 98% 15px;
+	display: none;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.sidebar-light .left-side-bar{
+	background: #ffffff;
+}
+.sidebar-light .sidebar-menu .dropdown-toggle{
+	color: #0b132b;
+	font-weight: 500;
+}
+.sidebar-light .sidebar-menu .dropdown-toggle .micon{
+	color: #0b132b;
+}
+.sidebar-light .sidebar-menu .submenu li a{
+	color: #0b132b;
+	font-weight: 400;
+}
+.sidebar-light .sidebar-menu .submenu{
+	background: #e6ebf0;
+}
+.sidebar-light .sidebar-menu .submenu li a:hover,
+.sidebar-light .sidebar-menu .submenu li a.active{
+	color: #ffffff;
+	background-color: #142127;
+}
+.sidebar-light .sidebar-menu .dropdown-toggle:hover,
+.sidebar-light .sidebar-menu .show>.dropdown-toggle{
+	color: #ffffff;
+	background-color: #142127;
+}
+.sidebar-light .sidebar-menu .dropdown-toggle:hover .micon,
+.sidebar-light .sidebar-menu .show>.dropdown-toggle .micon{
+	color: #ffffff;
+}
+.sidebar-light .menu-block .mCS-dark-2.mCSB_scrollTools .mCSB_draggerRail{
+	background-color: #0e132b;
+}
+
+.sidebar-menu .dropdown-divider{
+	margin: 20px 0;
+	border-color: rgba(255,255,255,.2);
+	border-width: 2px;
+}
+.sidebar-light .sidebar-menu .dropdown-divider{
+	border-color: rgba(0,0,0,0.2);
+}
+
+.sidebar-menu .sidebar-small-cap{
+	font-size: 14px;
+	letter-spacing: 0.050em;
+	text-transform: uppercase;
+	font-weight: 600;
+	color: #ffffff;
+	padding: 0 15px 10px;
+}
+.sidebar-light .sidebar-menu .sidebar-small-cap{
+	color: #1502bd;
+}
+

@@ -94,7 +94,6 @@ export class AjouterplainteComponent implements OnInit {
             appelOffreReference: '',
         };
         console.log(data);
-        alert(this.plainte.plainteAoReference);
         this.router.navigate(["/ListePlainte"])
       },
       (error)=>{

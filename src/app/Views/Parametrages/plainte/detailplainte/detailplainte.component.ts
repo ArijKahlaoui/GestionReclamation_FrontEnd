@@ -37,7 +37,10 @@ export class DetailplainteComponent implements OnInit {
   plainteSoumissionReference:{
     soumissionnaireReference: any;
     soumissionnaireNom: any;
-  } | any
+  } | any;
+  demandesType:{
+    demandeTypeId:any,
+  }|any;
   constructor(private _document:DocumentService,private _route:ActivatedRoute,private _plainte:PlainteService,private router: Router,private httpClient: HttpClient) { }
 
   ngOnInit(): void {
@@ -67,8 +70,11 @@ export class DetailplainteComponent implements OnInit {
         this.plainteDate = this.plainte.plainteDate;
         this.plainteAoReference = this.plainte.plainteAoReference;
         this.plainteSoumissionReference=this.plainte.plainteSoumissionReference;
+        this.demandesType=this.plainte.demandesType;
       }
     );
+
+    
 
       //get Soumissionnaire
     this._plainte.getSoumissionnaire(this.plainte.plainteSoumissionReference).subscribe(data=>{
@@ -96,10 +102,13 @@ export class DetailplainteComponent implements OnInit {
         this.plainteDate = this.plainte.plainteDate;
         this.plainteAoReference = this.plainte.plainteAoReference;
         this.plainteSoumissionReference=this.plainte.plainteSoumissionReference;
-      })
+        this.demandesType=this.plainte.demandesType;
+      });
+      
   }
 
   validation(dId: any){
+
     
     this.router.navigate(['traitPlainte', dId]);
     
@@ -107,7 +116,7 @@ export class DetailplainteComponent implements OnInit {
 
   historique(dId: any){
     
-    this.router.navigate(['historiquePlainte', dId]);
+    this.router.navigate(['historiquePlainte/'+this.plainte.demandesType.demandeTypeId, dId]);
     
   }
 

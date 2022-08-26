@@ -1,6 +1,6 @@
 export interface HistoriquePlainte{
     HistoriqueDemandeId:String;
-    HistoriqueDemandeDateDebutPrevue : String;
+    historiqueDemandeDateDebutPrevue : String;
 	HistoriqueDemandeDateFinPrevue :String;
 	HistoriqueDemandeDateDebutReelle :String;
 	HistroriqueDemandeDateFinReelle :String;

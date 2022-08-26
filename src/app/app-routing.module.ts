@@ -20,6 +20,7 @@ import { AjouterEtatSuiviComponent } from './Views/Parametrages/etatSuivi/ajoute
 import { DetailEtatSuiviComponent } from './Views/Parametrages/etatSuivi/detail-etat-suivi/detail-etat-suivi.component';
 import { ListeEtatSuiviComponent } from './Views/Parametrages/etatSuivi/liste-etat-suivi/liste-etat-suivi.component';
 import { ModifierEtatSuiviComponent } from './Views/Parametrages/etatSuivi/modifier-etat-suivi/modifier-etat-suivi.component';
+import { ParametrageComponent } from './Views/Parametrages/parametrage/parametrage.component';
 import { AjouterplainteComponent } from './Views/Parametrages/plainte/ajouterplainte/ajouterplainte.component';
 import { DetailplainteComponent } from './Views/Parametrages/plainte/detailplainte/detailplainte.component';
 import { HistoriquePlainteComponent } from './Views/Parametrages/plainte/historique-plainte/historique-plainte.component';
@@ -32,6 +33,10 @@ import { ListeTypeDemandeComponent } from './Views/Parametrages/type-demande/lis
 import { ModifierTypeDemandeComponent } from './Views/Parametrages/type-demande/modifier-type-demande/modifier-type-demande.component';
 
 const routes: Routes = [
+  {
+    path:'',
+    component: ParametrageComponent
+  },
   {
     path:'ListeDem',
     component: ListeTypeDemandeComponent
@@ -133,7 +138,7 @@ const routes: Routes = [
     path:'detailDocCat/:documentCategorieId',
     component:DetailDocumentCategorieComponent,
   },
-  //**************************** Type Acteur *******************************
+  //**************************** Plainte *******************************
   {
     path:'ListePlainte',
     component: ListeplainteComponent,
@@ -154,7 +159,7 @@ const routes: Routes = [
   },
 
   {
-    path:'historiquePlainte/:plainteId',
+    path:'historiquePlainte/:demandeTypeId/:plainteId',
     component:HistoriquePlainteComponent,
   },
 ];

@@ -1405,7 +1405,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td:first-child:before, tabl
 	padding: 0px 0px 20px;
 }
 .sidebar-menu > ul > li{
-	padding: 2px 12px;
+	padding: 3px 12px;
 }
 .sidebar-menu .dropdown-toggle{
 	display: block;

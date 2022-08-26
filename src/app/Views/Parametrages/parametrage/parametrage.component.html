@@ -1,0 +1,63 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main-container" >
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h2 class="text-blue h4">{{fr.nav_parametrage}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <div class="page-header">
+                <div class="row"> 
+                    <div class="col-md-6 col-sm-12">         
+                            <div class="pd-10">
+                                <a [routerLink]="'/ListeDem'" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                    <h3>
+                                    <span class="user-name">{{fr.chmp_gestion}} {{fr.nav_typeDemande}}</span></h3>
+                                </a>
+                            </div>
+                            <div class="pd-10">
+                                <a [routerLink]="'/ListeEtat'" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                    <h3>
+                                    <span class="user-name">{{fr.chmp_gestion}} {{fr.nav_EtatSuivi}}</span></h3>
+                                </a>
+                            </div>
+                            <div class="pd-10">
+                                <a [routerLink]="'/ListeDec'" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                    <h3>
+                                    <span class="user-name">{{fr.chmp_gestion}} {{fr.nav_decision}}</span></h3>
+                                </a>
+                            </div>
+                            <div class="pd-10">
+                                <a [routerLink]="'/ListeAct'" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                    <h3>
+                                    <span class="user-name">{{fr.chmp_gestion}} {{fr.nav_ActeurType}}</span></h3>
+                                </a>
+                            </div>
+
+                            <div class="pd-10">
+                                <a [routerLink]="'/ListeDocCat'" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                    <h3>
+                                    <span class="user-name">{{fr.chmp_gestion}} {{fr.nav_document_categorie}}</span></h3>
+                                </a>
+                            </div>
+
+                            <div class="pd-10">
+                                <a [routerLink]="'/ListePlainte'" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                    <h3>
+                                    <span class="user-name">{{fr.chmp_gestion}} {{fr.nav_Plainte}}</span></h3>
+                                </a>
+                            </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

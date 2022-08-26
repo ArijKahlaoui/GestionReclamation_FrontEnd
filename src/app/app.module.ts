@@ -53,6 +53,10 @@ import { DetailplainteComponent } from './Views/Parametrages/plainte/detailplain
 import { TraitementplainteComponent } from './Views/Parametrages/plainte/traitementplainte/traitementplainte.component';
 import { HistoriqueReponseComponent } from './Views/Parametrages/plainte/historique-reponse/historique-reponse.component';
 import { HistoriquePlainteComponent } from './Views/Parametrages/plainte/historique-plainte/historique-plainte.component';
+import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ParametrageComponent } from './Views/Parametrages/parametrage/parametrage.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,6 +96,8 @@ import { HistoriquePlainteComponent } from './Views/Parametrages/plainte/histori
     TraitementplainteComponent,
     HistoriqueReponseComponent,
     HistoriquePlainteComponent,
+    ParametrageComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -111,6 +117,9 @@ import { HistoriquePlainteComponent } from './Views/Parametrages/plainte/histori
     MatSelectModule,
     DragDropModule,
     CdkTableModule,
+    NgxNavbarModule,
+    MatExpansionModule
+    //SidebarModule
     
   ],
   providers: [],
