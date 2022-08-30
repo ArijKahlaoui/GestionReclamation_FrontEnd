@@ -14,6 +14,9 @@ import { PlainteService } from 'src/app/services/plainte.service';
 })
 export class DetailplainteComponent implements OnInit {
 
+  acteurs = ["ADM","USER"];
+  acteur:any;
+  result =false;
 
   displayedColumns = ['idDocument','documentNom','Lien'];
   dataSource!: MatTableDataSource<Document>;
@@ -44,6 +47,11 @@ export class DetailplainteComponent implements OnInit {
   constructor(private _document:DocumentService,private _route:ActivatedRoute,private _plainte:PlainteService,private router: Router,private httpClient: HttpClient) { }
 
   ngOnInit(): void {
+
+    this.acteur = this.acteurs[Math.floor(Math.random() * this.acteurs.length)];
+    if(this.acteur == "USER"){
+      this.result = true;
+    }
 
     this._route.paramMap.subscribe(
       params => {

@@ -25,7 +25,7 @@
             <div class="pd-20 card-box mb-30">
                 
                 <div class="wizard-content" style="margin-top: 50px;">
-                    <form [formGroup]="form" (ngSubmit)="submitAll()" class="tab-wizard wizard-circle wizard needs-validation novalidate">
+                    <form [formGroup]="form"  class="tab-wizard wizard-circle wizard needs-validation novalidate">
                         
                             <div class="row" >
                                 <div class="col-md-6">
@@ -95,7 +95,7 @@
                                             class="form-control-file form-control height-auto"
                                         />
                                     </div>
-                                    <button (click)="onPress()" class="btn btn-success btn-sm scroll-click"rel="content-y" role="button">
+                                    <button (click)="onPress()" class="btn btn-success btn-sm scroll-click"rel="content-y">
                                         <i class="icon-copy fa fa-plus" aria-hidden="true"></i>
                                     </button> 
                                 </div>
@@ -125,7 +125,7 @@
                                     </div>
                             <div class="text-center">
                                 <button  [routerLink]="'/ListePlainte'" class="btn btn-secondary "> {{fr.btn_annulation}} </button>
-                                <button style="margin-left: 10px;"  type="submit" class="btn btn-success "> {{fr.btn_ajout}} </button>
+                                <button style="margin-left: 10px;" (click)="submitAll()" type="submit" class="btn btn-success "> {{fr.btn_ajout}} </button>
                             </div>
                     </form>
                 </div>{{document|json}}

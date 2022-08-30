@@ -43,10 +43,6 @@ import { AjouterDocumentCategorieComponent } from './Views/Parametrages/document
 import { ListeDocumentCategorieComponent } from './Views/Parametrages/document-categorie/liste-document-categorie/liste-document-categorie.component';
 import { DetailDocumentCategorieComponent } from './Views/Parametrages/document-categorie/detail-document-categorie/detail-document-categorie.component';
 import { ModifierDocumentCategorieComponent } from './Views/Parametrages/document-categorie/modifier-document-categorie/modifier-document-categorie.component';
-import { ModifierDocumentComponent } from './Views/Parametrages/document/modifier-document/modifier-document.component';
-import { DetailDocumentComponent } from './Views/Parametrages/document/detail-document/detail-document.component';
-import { AjouterDocumentComponent } from './Views/Parametrages/document/ajouter-document/ajouter-document.component';
-import { ListeDocumentComponent } from './Views/Parametrages/document/liste-document/liste-document.component';
 import { AjouterplainteComponent } from './Views/Parametrages/plainte/ajouterplainte/ajouterplainte.component';
 import { ListeplainteComponent } from './Views/Parametrages/plainte/listeplainte/listeplainte.component';
 import { DetailplainteComponent } from './Views/Parametrages/plainte/detailplainte/detailplainte.component';
@@ -86,10 +82,6 @@ import { ParametrageComponent } from './Views/Parametrages/parametrage/parametra
     ListeDocumentCategorieComponent,
     DetailDocumentCategorieComponent,
     ModifierDocumentCategorieComponent,
-    ModifierDocumentComponent,
-    DetailDocumentComponent,
-    AjouterDocumentComponent,
-    ListeDocumentComponent,
     AjouterplainteComponent,
     ListeplainteComponent,
     DetailplainteComponent,

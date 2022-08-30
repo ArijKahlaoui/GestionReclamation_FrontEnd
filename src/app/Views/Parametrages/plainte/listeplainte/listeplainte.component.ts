@@ -15,6 +15,10 @@ import Swal from 'sweetalert2';
 })
 export class ListeplainteComponent implements OnInit {
 
+  acteurs = ["ADM","USER"];
+  acteur:any;
+  hide =false;
+
   displayedColumns = ['plainteId','plainteSoumissionReference','plainteAoReference','plainteObjet','operations'];
   dataSource!: MatTableDataSource<Plainte>;
 
@@ -36,6 +40,12 @@ export class ListeplainteComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.acteur = this.acteurs[Math.floor(Math.random() * this.acteurs.length)];
+    if(this.acteur == "USER"){
+      this.displayedColumns = ['plainteId','plainteAoReference','plainteObjet','operations'];
+      this.hide = true;
+    }
+    
     
     this._plainte.plaintes().subscribe(
       (data:any)=>{

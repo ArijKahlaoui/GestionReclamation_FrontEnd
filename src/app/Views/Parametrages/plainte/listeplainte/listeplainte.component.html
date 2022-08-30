@@ -47,7 +47,7 @@
                             <td  class="sizeRef" mat-cell *matCellDef="let element"> {{element.plainteId}} </td>
                         </ng-container>
                         
-                        <ng-container matColumnDef="plainteSoumissionReference" >
+                        <ng-container *ngIf="hide == false" matColumnDef="plainteSoumissionReference" >
                             <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.chmp_Soumission}} </th>
                             <td class="sizeDesc" mat-cell *matCellDef="let element"> {{element.soumissionnaire.soumissionnaireNom}} </td>
                         </ng-container>
@@ -84,7 +84,7 @@
                     </mat-paginator>
                 </div>
             </div>
-        </div>
-    </div>
+        </div>{{acteur|json}}
+    </div>{{hide|json}}
 </div>
 

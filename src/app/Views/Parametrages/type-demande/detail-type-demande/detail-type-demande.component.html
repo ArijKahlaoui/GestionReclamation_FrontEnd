@@ -125,16 +125,16 @@
 
                         <ng-container matColumnDef="operations" >
                             <th class="text-center" mat-header-cell *matHeaderCellDef> {{fr.chmp_Operation}} </th>
-                            <td class="sizeOp text-center" mat-cell *matCellDef="let element" >
-                                <button (click)="detailEtp(element.etapesDemandesId)" class="btn btn-info" >
+                            <td  mat-cell *matCellDef="let element" >
+                                <button (click)="detailEtp(element.etapesDemandesId)" class="btn btn-sm btn-info" >
                                     <i class="dw dw-eye"></i>
                                 </button>
-                                <button (click)="modif(element.etapesDemandesId)" style="margin-left: 10px;" class="btn btn-warning">
+                                <button (click)="modif(element.etapesDemandesId)" style="margin-left: 10px;" class="btn btn-sm btn-warning">
                                     <i class="icon-copy fi-pencil"></i>
                                 </button>
-                                <a class="btn btn-danger " (click)="supp(element.etapesDemandesId)" style="margin-left: 10px;" >
+                                <button class="btn btn-sm btn-danger " (click)="supp(element.etapesDemandesId)" style="margin-left: 10px;" >
                                     <i class="icon-copy bi bi-trash3-fill"  ></i>
-                                </a>
+                                </button>
                             </td>
                         </ng-container>
                         
@@ -148,46 +148,6 @@
                     <div>
                     {{fr.signification_etoil}}
                 </div>
-
-                
-
-
-                    <!--<table  class="row-border hover" matSortActive="etapesDemandesOrdre" matSortDirection="asc" matSortDisableClear>
-                        <thead>
-                          <tr>
-                            <th class="sizeRef" [appSort]="etapes" data-order="asc" data-name="etapesDemandesOrdre">{{fr.ordre}}</th>
-                              <th class="sizeLib" [appSort]="etapes" data-order="asc">{{fr.Etapes}}</th>
-                              
-                              <th class="sizeAcro" [appSort]="etapes" data-order="asc">{{fr.Responsable}}</th>
-                              <th class="sizeDesc" [appSort]="etapes" data-order="asc">{{fr.chmp_Description}}</th>
-                              <th class="sizeOp text-center" [appSort]="etapes" data-order="asc">{{fr.chmp_Operation}}</th>
-                          </tr>
-                        </thead>
-                        <tbody cdkDropList (cdkDropListDropped)="drop($event)">
-                          <tr *ngFor="let etape of etapes" cdkDrag cdkDragLockAxis="y">
-                            <td class="sizeRef">{{ etape.etapesDemandesOrdre }} </td>
-                            <td class="sizeLib">{{ etape.etapesDemandesLibelle }}</td>
-                            <td class="sizeDesc">{{etape.etapesDemandesActeurType.acteurTypeDesignationCourte}}</td>
-                            <td class="sizeDesc">{{ etape.etapesDemandesDescription }}</td>
-                            <td class="sizeOp text-center" >
-                                <button (click)="detailEtp(etape.etapesDemandesId)" style="margin-bottom: 10px;"  class="btn btn-info" >
-                                    <i class="dw dw-eye"></i>
-                                </button>
-                                <button (click)="modif(etape.etapesDemandesId)" style="margin-left: 10px;margin-bottom: 10px;" class="btn btn-warning">
-                                    <i class="icon-copy fi-pencil"></i>
-                                </button>
-                                <a class="btn btn-danger " (click)="supp(etape.etapesDemandesId)" style="margin-left: 10px;margin-bottom: 10px;" >
-                                    <i class="icon-copy bi bi-trash3-fill"  ></i>
-                                </a>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <mat-paginator #paginator
-                        [pageSize]="5"
-                        [pageSizeOptions]="[5, 10, 25, 100]">
-                    </mat-paginator>
-                </div>-->
             </div>
         </div>
     </div>

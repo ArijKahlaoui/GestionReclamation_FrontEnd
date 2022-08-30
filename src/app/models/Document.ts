@@ -1,3 +1,4 @@
+import { HistoriquePlainte } from "./HistoriquePlainte";
 import { Soumissionnaire } from "./Soumissionnaire";
 
 export interface Document{
@@ -6,4 +7,5 @@ export interface Document{
     soumissionnaire:Soumissionnaire,
     appeloffre:String
     documentDateInsertion:String
+    historiquePlainte:HistoriquePlainte,
 }

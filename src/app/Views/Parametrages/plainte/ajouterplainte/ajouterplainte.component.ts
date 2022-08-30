@@ -24,6 +24,7 @@ export class AjouterplainteComponent implements OnInit {
   appelOffreReference:any = 1;
   
   plainte={
+    plainteId:'',
     plainteObjet:'',
     plainteDescription:'',
     plainteDate:new Date(),
@@ -39,6 +40,11 @@ export class AjouterplainteComponent implements OnInit {
 
   document={  
     documentNom:'',
+    historiquePlainte:{
+      plainte: {
+        plainteId: '',
+      }
+    },
   }
 
   form: FormGroup = new FormGroup({
@@ -88,6 +94,7 @@ export class AjouterplainteComponent implements OnInit {
     // ajouter Plainte
     this._plainte.ajouter(this.plainte).subscribe(
       (data:any)=>{
+        this.plainte = data;
         this.plainte.plainteObjet= '';
         this.plainte.plainteDescription= '';
         this.plainte.plainteAoReference = {
@@ -107,8 +114,9 @@ export class AjouterplainteComponent implements OnInit {
     
     this._document.ajouter(this.document).subscribe(
       (data:any)=>{
+        this.document = data
         this.document.documentNom='';
-        
+        this.document.historiquePlainte.plainte.plainteId = this.plainte.plainteId;
         console.log(data);
         this.router.navigate(["/ListePlainte"])
       },
@@ -123,8 +131,8 @@ export class AjouterplainteComponent implements OnInit {
     if (this.form.invalid) {
         return;
     }
-    this.upload();
     this.formSubmit();
+    this.upload();
   }
 
 onPress() {

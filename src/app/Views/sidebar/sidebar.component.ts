@@ -9,9 +9,13 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
+  
   constructor(private router: Router,private httpClient: HttpClient) { }
   sidebar: any;
   fr: any=[];
+
+
+
   ngOnInit(): void {
     this.httpClient.get("assets/fr.json").subscribe(data =>{
       console.log(data);

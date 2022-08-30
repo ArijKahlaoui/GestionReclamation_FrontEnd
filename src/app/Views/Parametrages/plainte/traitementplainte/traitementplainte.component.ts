@@ -77,5 +77,9 @@ export class TraitementplainteComponent implements OnInit {
     console.log(this.dataarray) 
   }
 
+  reponse(dId:any){
+    this.router.navigate(['historiqueRep', dId]);
+  }
+
   
 }

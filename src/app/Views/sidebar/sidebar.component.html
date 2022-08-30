@@ -1,4 +1,4 @@
-<div class="left-side-bar cursor-btn">
+<!--<div class="left-side-bar cursor-btn">
     <div class="brand-logo">
         <a href="index.html">
             <img src="assets/vendors/images/deskapp-logo.svg" alt="" class="dark-logo" />
@@ -8,7 +8,7 @@
                 class="light-logo"
             />
         </a>
-        <div  class="close-sidebar"  data-toggle="left-sidebar-close">
+        <div (opened)="panelOpenState = true" (closed)="panelOpenState = false">
             <i class="ion-close-round"></i>
         </div>
     </div>
@@ -24,7 +24,20 @@
                 <li>
                     <div class="dropdown-divider"></div>
                 </li>
-
+                <li>
+                    <mat-accordion >
+                        <mat-expansion-panel style="background-color: non ;">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <span class="micon bi bi-hdd-stack"></span>
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                <a [routerLink]="'/'" > {{fr.nav_parametrage}}</a> 
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </li>   
                 <li >
                     <mat-accordion >
                         <mat-expansion-panel (opened)="panelOpenState = true"
@@ -59,6 +72,7 @@
                         </mat-expansion-panel>
                     </mat-accordion>
                 </li>
+                
                 <li >
                     <mat-accordion >
                         <mat-expansion-panel (opened)="panelOpenState = true"
@@ -130,28 +144,16 @@
                         </mat-expansion-panel>
                     </mat-accordion>
 
-                </li>
-                <li>
-                    <mat-accordion >
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>
-                                    <span class="micon bi bi-hdd-stack"></span>
-                                </mat-panel-title>
-                                <mat-panel-description>
-                                <a [routerLink]="'/'"> {{fr.nav_parametrage}}</a> 
-                                </mat-panel-description>
-                            </mat-expansion-panel-header>
-                        </mat-expansion-panel>
-                    </mat-accordion>
-                </li>       
-                    
+                </li>    
+                  
             </ul>
         </div>
     </div>
+
+    
     
     
     <div class="mobile-menu-overlay"></div>
 
     
-</div>
+</div>-->

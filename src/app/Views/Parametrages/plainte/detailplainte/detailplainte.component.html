@@ -67,7 +67,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div   class="col-md-6" *ngIf="result == false">
                                     <div class="form-group row">
                                         <label class="col-sm-12 col-md-4 col-form-label ">{{fr.chmp_Soumission}} : </label>
                                         <div class="col-sm-12 col-md-8">
@@ -141,6 +141,6 @@
                     </mat-paginator>
                 </div>
             </div>
-        </div>
+        </div>{{acteur|json}}
     </div>
 </div>

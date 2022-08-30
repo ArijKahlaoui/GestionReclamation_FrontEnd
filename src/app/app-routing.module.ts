@@ -37,6 +37,8 @@ const routes: Routes = [
     path:'',
     component: ParametrageComponent
   },
+
+
   {
     path:'ListeDem',
     component: ListeTypeDemandeComponent
@@ -161,6 +163,11 @@ const routes: Routes = [
   {
     path:'historiquePlainte/:demandeTypeId/:plainteId',
     component:HistoriquePlainteComponent,
+  },
+
+  {
+    path:'historiqueRep/:plainteId',
+    component:HistoriqueReponseComponent,
   },
 ];
 

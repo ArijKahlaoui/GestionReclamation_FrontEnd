@@ -17,18 +17,18 @@ table {
   width: 100%;
 }
 
-.sizeDesc{
+/*.sizeDesc{
   word-break:break-all;
   width: 20%;
   word-wrap: break-word;
 }
 
 .sizeRef{
-  width: 7%;
+  width: 5%;
   padding-left: 13px;
 }
 
-/*.sizeAcro{
+.sizeAcro{
   width: 10%;
   padding-left: 13px;
 }
@@ -38,7 +38,7 @@ table {
 }
 
 .sizeOp{
-  width: 11%;
+  width: 14%;
   padding-left: 15px;
 }*/
 th td{
