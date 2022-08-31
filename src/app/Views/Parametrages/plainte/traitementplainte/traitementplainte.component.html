@@ -156,7 +156,7 @@
                 <div class="pd-20 card-box mb-30">
                 
                     <div class="wizard-content" style="margin-top: 50px;">
-                        <form class="tab-wizard wizard-circle wizard needs-validation novalidate">
+                        <form [formGroup]="form" (ngSubmit)="formSubmit()" class="tab-wizard wizard-circle wizard needs-validation novalidate">
                             
                                 <div class="row" >
                                     <div class="col-md-6">
@@ -164,10 +164,18 @@
                                             <label class="col-sm-12 col-md-3 col-form-label">{{fr.nav_decision}} :&ensp;<span>*
                                                 </span></label>
                                             <div class="col-sm-12 col-md-4">
-                                                <select formControlName="etapesDemandesActeurType"
-                                                    name="etapesDemandesActeurType"
-                                                    [(ngModel)]="decisions.decisionId"
+                                                <select 
+                                                    formControlName="decision"
+                                                    name="decision"
+                                                    [(ngModel)]="traitement.decision.decisionId"
+                                                    [ngClass]="{ 'is-invalid': submitted && f['decision'].errors }"
                                                     class="form-control ">
+                                                    <div *ngIf="submitted && f['decision'].errors"
+                                                    class="invalid-feedback">
+                                                    <div *ngIf="f['decision'].errors['required']">
+                                                        {{fr.chmp_obligatoir}}
+                                                    </div>
+                                                </div>
                                                     <option *ngFor="let act of decisions" [value]="act.decisionId">
                                                         {{act.decisionLibelle}}
                                                     </option>
@@ -182,11 +190,26 @@
                                         <div class="form-group row">
                                             <label class="col-sm-12 col-md-3 col-form-label">{{fr.chmp_reponse}} :</label>
                                             <div class="col-sm-12 col-md-9" >
-                                                <textarea  formControlName="decisionDescription" maxlength="1000"
+                                                <textarea  formControlName="reponse" maxlength="1000"
                                                     style="height:100px;resize: none;"
+                                                    [(ngModel)]="traitement.reponse"
                                                     class="form-control" 
-                                                    name="decisionDescription"> 
+                                                    [ngClass]="{ 'is-invalid': submitted && f['reponse'].errors }" 
+                                                    name="reponse"> 
                                                 </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" hidden>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-12 col-md-3 col-form-label">{{fr.chmp_reponse}} :</label>
+                                            <div class="col-sm-12 col-md-9" >
+                                                <input class="form-control" type="number" name="etapesDemandesOrdre" required min="0"
+                                                [(ngModel)]="traitement.plainte.plainteId"
+                                                formControlName="plainte"
+                                                 />{{plainte.plainteId}}
                                             </div>
                                         </div>
                                     </div>
@@ -217,12 +240,12 @@
                                     </div>
                                 </form>
                                 <div class="text-center">
-                                    <button  type="submit" (click)="reponse(plainte.plainteId)" class="btn btn-success "> {{fr.btn_validation}} </button>
+                                    <button  type="submit"  class="btn btn-success "> {{fr.btn_validation}} </button>
                                     <button style="margin-left: 10px;" [routerLink]="'/ListePlainte'" class="btn btn-secondary "> {{fr.btn_annulation}} </button>
                                 </div> 
                         </form>
                     </div>
-                </div>
+                </div>{{traitement|json}}
             </div>
         </div>
     </div>

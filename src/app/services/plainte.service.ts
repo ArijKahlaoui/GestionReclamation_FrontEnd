@@ -44,4 +44,12 @@ export class PlainteService {
     return this.http.get(`${this.baseUrl}/plainte/type/${dId}`)
   }
 
+  public ajouterTraitement(traitement:any){
+    return this.http.post(`${this.baseUrl}/traitement/`,traitement);
+  }
+
+  public gettraitementOfPlainte(dId: any){
+    return this.http.get(`${this.baseUrl}/traitement/${dId}`)
+  }
+
 }

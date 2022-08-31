@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators,FormBuilder, } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { never, NEVER } from 'rxjs';
 import { DecisionService } from 'src/app/services/decision.service';
 import { DocumentService } from 'src/app/services/document.service';
 import { PlainteService } from 'src/app/services/plainte.service';
@@ -33,16 +33,36 @@ export class TraitementplainteComponent implements OnInit {
   display :any = 0;
 
   dataarray:any[]=[];
-  constructor(private _decision:DecisionService,private _route:ActivatedRoute,private _plainte:PlainteService,private router: Router,private httpClient: HttpClient) { }
+
+  //AJOUT TRAITEMENT
+  traitement={
+    reponse:'',
+    decision:{
+      decisionId:''
+    },
+    plainte:{
+      plainteId:''
+    }
+  }
+
+  form: FormGroup = new FormGroup({
+    traitementId: new FormControl(''),
+    reponse: new FormControl(''),
+    decision:new FormControl(''),
+    plainte:new FormControl(''),
+  })
+
+  constructor(private formBuilder: FormBuilder,private _decision:DecisionService,private _route:ActivatedRoute,private _plainte:PlainteService,private router: Router,private httpClient: HttpClient) { }
   submitted = false; 
   ngOnInit(): void {
 
-    
     this._route.paramMap.subscribe(
       params => {
         this.plainteId = params.get('plainteId');
       }
     );
+
+    this.traitement.plainte.plainteId = this.plainteId;
 
     this._decision.decisions().subscribe(data=>{
       this.decisions= data;
@@ -63,6 +83,17 @@ export class TraitementplainteComponent implements OnInit {
     this._plainte.getSoumissionnaire(this.plainte.plainteSoumissionReference).subscribe(data=>{
       this.soumissionnaire=  data;
       
+    });
+
+
+    this.form = this.formBuilder.group({ 
+      reponse: ['', [Validators.maxLength(1000)]],
+      decision:{
+        decisionId:[''],
+      } ,
+      plainte: {
+        plainteId:[''],
+      }
     })
 
     this.httpClient.get("assets/fr.json").subscribe(data =>{
@@ -77,8 +108,24 @@ export class TraitementplainteComponent implements OnInit {
     console.log(this.dataarray) 
   }
 
-  reponse(dId:any){
-    this.router.navigate(['historiqueRep', dId]);
+  get f(){  
+    return this.form.controls;  
+  }
+
+  formSubmit(){
+    this.submitted = true;
+    if (this.form.invalid) {
+      return;
+    }
+    this._plainte.ajouterTraitement(this.traitement).subscribe(
+      data=>{
+        this.traitement.reponse = '';
+        this.traitement.decision.decisionId='';
+        this.traitement.plainte.plainteId ='';
+
+        this.router.navigate(["/historiqueRep/"+this.plainteId])
+      }
+    )
   }
 
   

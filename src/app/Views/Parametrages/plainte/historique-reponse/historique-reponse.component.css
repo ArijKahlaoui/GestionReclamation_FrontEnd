@@ -1,0 +1,34 @@
+table {
+    width: 100%;
+   
+  }
+    
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .sizeRef{
+    width: 2%;
+    padding-left: 13px;
+  }
+  
+  .sizeDesc{
+    word-break:break-all;
+    width: 20%;
+    word-wrap: break-word;
+  }
+  
+  .sizeAcro{
+    width: 8%;
+    padding-left: 13px;
+  }
+  
+  .sizeLib{
+    width: 12%;
+  }
+  
+  .sizeOp{
+    width: 11%;
+    padding-left: 15px;
+  }

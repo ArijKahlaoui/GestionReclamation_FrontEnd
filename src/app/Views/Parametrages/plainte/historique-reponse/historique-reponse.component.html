@@ -1,1 +1,85 @@
-<p>historique-reponse works!</p>
+<app-header></app-header>
+<div class="main-container" >
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h2 class="text-blue h4">{{fr.chmp_historiqueReponse}}</h2>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a [routerLink]="'/ListePlainte'" >{{fr.nav_Accueil}}</a>
+                                </li>
+                                <li class="breadcrumb-item text-blue " aria-current="page">
+                                    {{fr.chmp_historiqueReponse}}
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="card-box mb-30">
+                <div class="pd-20">
+                    <mat-form-field appearance="standard">
+                        <mat-label>{{fr.chercher}}</mat-label>
+                        <input matInput (keyup)="applyFilter($event)" #input>
+                    </mat-form-field>
+                    <table #matSort="matSort" mat-table matSort matSortActive="plainteId"  matSortDirection="desc" matSortDisableClear [dataSource]="dataSource" matSortDisableClear class="mat-elevation-z8">
+                        <ng-container matColumnDef="plainteId">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.chmp_Ref}} </th>
+                            <td  class="sizeRef" mat-cell *matCellDef="let element"> {{element.plainte.plainteId}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="plainteDate" >
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.chmp_Date}} </th>
+                            <td class="sizeDesc" mat-cell *matCellDef="let element"> {{element.plainte.plainteDate}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="plainteAoReference">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.chmp_appel_offre}} </th>
+                            <td class="sizeLib" mat-cell *matCellDef="let element"> {{element.plainte.appeloffre.appelOffreIntitule}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="decision">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.nav_decision}} </th>
+                            <td class="sizeLib" mat-cell *matCellDef="let element"> {{element.decision.decisionLibelle}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="acteur">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.chmp_ActeurRep}} </th>
+                            <td class="sizeLib" mat-cell *matCellDef="let element"> {{element.plainteObjet}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="reponse">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef> {{fr.chmp_reponse}} </th>
+                            <td class="sizeLib" mat-cell *matCellDef="let element"> {{element.reponse}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="operations" >
+                            <th class="text-center" mat-header-cell *matHeaderCellDef> {{fr.chmp_Operation}} </th>
+                            <td class="sizeOp text-center" mat-cell *matCellDef="let element" >
+                                <button class="btn btn-info" >
+                                    <i class="dw dw-eye"></i>
+                                </button>
+                                
+                            </td>
+                        </ng-container>
+                        
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <mat-paginator #paginator
+                        [pageSize]="5"
+                        [pageSizeOptions]="[5, 10, 25, 100]">
+                    </mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

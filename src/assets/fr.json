@@ -58,6 +58,7 @@
   "a_document_categorie":"Categorie Doc",
   "nav_Plainte":"Plainte",
   "chmp_historique":"Historique plainte",
+  "chmp_historiqueReponse":"Historique Réponse",
   "DateDebutPrevue":"Date Debut Prevue",
   "DateFinPrevue":"Date Fin Prevue",
   "DateDebutReelle":"Date Debut Reelle",
@@ -73,5 +74,6 @@
   "ordre":"Ordre",
   "signification_etoil":"*: Délais exprimés en jours Ouvrables",
   "chmp_objet":"Objet",
-  "chmp_appel_offre":"AO"
+  "chmp_appel_offre":"AO",
+  "chmp_ActeurRep":"Acteur"
 }

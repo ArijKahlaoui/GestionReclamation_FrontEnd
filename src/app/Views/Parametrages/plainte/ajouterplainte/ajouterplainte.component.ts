@@ -61,6 +61,7 @@ export class AjouterplainteComponent implements OnInit {
 
   ngOnInit(): void {
     
+    
     this._plainte.getAppel(this.appelOffreReference).subscribe(data=>{
       this.appelOffre = data;
       this.plainte.plainteAoReference = this.appelOffre.appelOffreReference;
